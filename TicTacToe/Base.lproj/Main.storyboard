@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="135" y="137.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="Mq3-TR-Ibm">
             <objects>
-                <viewController id="Pet-2j-uXF" sceneMemberID="viewController">
+                <viewController id="Pet-2j-uXF" customClass="GameViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Zb-2x-hQY"/>
                         <viewControllerLayoutGuide type="bottom" id="F1i-ns-Ypm"/>
@@ -231,7 +231,7 @@
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mf0-3G-mFX" userLabel="game board">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mf0-3G-mFX" userLabel="game board" customClass="GameBoardView" customModule="TicTacToe" customModuleProvider="target">
                                 <rect key="frame" x="54" y="215" width="306" height="306"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5r-7t-fGi" userLabel="top left button">
@@ -261,21 +261,17 @@
                                     <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltv-bH-lmr" userLabel="bottom right button">
                                         <rect key="frame" x="204" y="203.66666666666669" width="102" height="102.33333333333331"/>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-IV-OmH" userLabel="top horizontal">
-                                        <rect key="frame" x="0.0" y="95" width="306" height="14.666666666666686"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFN-OA-naU" userLabel="left vertical">
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFN-OA-naU" userLabel="left vertical" customClass="VerticalLineView" customModule="TicTacToe" customModuleProvider="target">
                                         <rect key="frame" x="94" y="0.0" width="15.666666666666657" height="306"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1G-Ne-03D" userLabel="right vertical">
-                                        <rect key="frame" x="196" y="0.0" width="15.666666666666686" height="306"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <view opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S1G-Ne-03D" userLabel="right vertical" customClass="VerticalLineView" customModule="TicTacToe" customModuleProvider="target">
+                                        <rect key="frame" x="196" y="-1" width="15.666666666666686" height="306"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9V-vd-Re8" userLabel="bottom horizontal">
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-IV-OmH" userLabel="top horizontal" customClass="HorizontalLineView" customModule="TicTacToe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="95" width="306" height="14.666666666666686"/>
+                                    </view>
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9V-vd-Re8" userLabel="bottom horizontal" customClass="HorizontalLineView" customModule="TicTacToe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="196" width="306" height="15"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -361,6 +357,13 @@
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomHorizontalLine" destination="r9V-vd-Re8" id="ReW-Vc-mVM"/>
+                        <outlet property="gameBoardView" destination="mf0-3G-mFX" id="uym-nB-tbY"/>
+                        <outlet property="leftVerticalLine" destination="SFN-OA-naU" id="kuS-iN-Ag0"/>
+                        <outlet property="rightVerticalLine" destination="S1G-Ne-03D" id="hgB-R2-5KV"/>
+                        <outlet property="topHorizontalLine" destination="f9W-IV-OmH" id="ckf-t2-PPv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1J-6M-pJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
