@@ -52,4 +52,13 @@ class GameBoardView: UIView {
         self.topHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 2))
         self.bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 3))
     }
+    
+    
+    // MARK: - Action Handling
+    
+    @IBAction func cellSelected(_ sender: UIButton) {
+        let location = CellLocation(rawValue: sender.tag)
+        print("Cell Selected: \(String(describing: location))" )
+    }
+    
 }
