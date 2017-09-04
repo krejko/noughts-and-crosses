@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		AA5021271F58F67C00DEE2BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021261F58F67C00DEE2BC /* AppDelegate.swift */; };
-		AA5021291F58F67C00DEE2BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021281F58F67C00DEE2BC /* ViewController.swift */; };
 		AA50212C1F58F67C00DEE2BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA50212A1F58F67C00DEE2BC /* Main.storyboard */; };
-		AA50212E1F58F67C00DEE2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA50212D1F58F67C00DEE2BC /* Assets.xcassets */; };
 		AA5021311F58F67C00DEE2BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA50212F1F58F67C00DEE2BC /* LaunchScreen.storyboard */; };
 		AA50213C1F58F67C00DEE2BC /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50213B1F58F67C00DEE2BC /* TicTacToeTests.swift */; };
-		AA5021471F5A519400DEE2BC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021461F5A519400DEE2BC /* UIView.swift */; };
-		AA5021491F5BA36300DEE2BC /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021481F5BA36300DEE2BC /* Drawer.swift */; };
-		AA50214B1F5BA45A00DEE2BC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50214A1F5BA45A00DEE2BC /* GameViewController.swift */; };
-		AA50214D1F5BA4F800DEE2BC /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50214C1F5BA4F800DEE2BC /* GameBoardView.swift */; };
-		AA50214F1F5BB20E00DEE2BC /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50214E1F5BB20E00DEE2BC /* LineView.swift */; };
-		AA5021511F5D7F9E00DEE2BC /* GameBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5021501F5D7F9E00DEE2BC /* GameBoardView.xib */; };
+		AA5021691F5D8D2E00DEE2BC /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50215E1F5D8D2E00DEE2BC /* GameBoardView.swift */; };
+		AA50216A1F5D8D2E00DEE2BC /* GameBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA50215F1F5D8D2E00DEE2BC /* GameBoardView.xib */; };
+		AA50216B1F5D8D2E00DEE2BC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021601F5D8D2E00DEE2BC /* GameViewController.swift */; };
+		AA50216C1F5D8D2E00DEE2BC /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021611F5D8D2E00DEE2BC /* LineView.swift */; };
+		AA50216D1F5D8D2E00DEE2BC /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021631F5D8D2E00DEE2BC /* MainMenuViewController.swift */; };
+		AA50216E1F5D8D2E00DEE2BC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021661F5D8D2E00DEE2BC /* UIView.swift */; };
+		AA5021721F5D8DB500DEE2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5021701F5D8DB500DEE2BC /* Assets.xcassets */; };
+		AA5021731F5D8DB500DEE2BC /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021711F5D8DB500DEE2BC /* Drawer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,20 +34,20 @@
 /* Begin PBXFileReference section */
 		AA5021231F58F67C00DEE2BC /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA5021261F58F67C00DEE2BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA5021281F58F67C00DEE2BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AA50212B1F58F67C00DEE2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AA50212D1F58F67C00DEE2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA5021301F58F67C00DEE2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA5021321F58F67C00DEE2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA5021371F58F67C00DEE2BC /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA50213B1F58F67C00DEE2BC /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
 		AA50213D1F58F67C00DEE2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA5021461F5A519400DEE2BC /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		AA5021481F5BA36300DEE2BC /* Drawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
-		AA50214A1F5BA45A00DEE2BC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		AA50214C1F5BA4F800DEE2BC /* GameBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
-		AA50214E1F5BB20E00DEE2BC /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
-		AA5021501F5D7F9E00DEE2BC /* GameBoardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameBoardView.xib; sourceTree = "<group>"; };
+		AA50215E1F5D8D2E00DEE2BC /* GameBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
+		AA50215F1F5D8D2E00DEE2BC /* GameBoardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameBoardView.xib; sourceTree = "<group>"; };
+		AA5021601F5D8D2E00DEE2BC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AA5021611F5D8D2E00DEE2BC /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		AA5021631F5D8D2E00DEE2BC /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		AA5021661F5D8D2E00DEE2BC /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		AA5021701F5D8DB500DEE2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA5021711F5D8DB500DEE2BC /* Drawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,18 +89,11 @@
 		AA5021251F58F67C00DEE2BC /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
-				AA5021481F5BA36300DEE2BC /* Drawer.swift */,
 				AA5021261F58F67C00DEE2BC /* AppDelegate.swift */,
-				AA5021281F58F67C00DEE2BC /* ViewController.swift */,
-				AA50212A1F58F67C00DEE2BC /* Main.storyboard */,
-				AA50212D1F58F67C00DEE2BC /* Assets.xcassets */,
-				AA50212F1F58F67C00DEE2BC /* LaunchScreen.storyboard */,
+				AA50215C1F5D8D2E00DEE2BC /* Controllers */,
+				AA5021651F5D8D2E00DEE2BC /* Extensions */,
+				AA50216F1F5D8DB500DEE2BC /* Resources */,
 				AA5021321F58F67C00DEE2BC /* Info.plist */,
-				AA5021461F5A519400DEE2BC /* UIView.swift */,
-				AA50214A1F5BA45A00DEE2BC /* GameViewController.swift */,
-				AA50214C1F5BA4F800DEE2BC /* GameBoardView.swift */,
-				AA50214E1F5BB20E00DEE2BC /* LineView.swift */,
-				AA5021501F5D7F9E00DEE2BC /* GameBoardView.xib */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -112,6 +105,61 @@
 				AA50213D1F58F67C00DEE2BC /* Info.plist */,
 			);
 			path = TicTacToeTests;
+			sourceTree = "<group>";
+		};
+		AA50215C1F5D8D2E00DEE2BC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA50215D1F5D8D2E00DEE2BC /* Game */,
+				AA5021621F5D8D2E00DEE2BC /* Main Menu */,
+				AA5021641F5D8D2E00DEE2BC /* Settings Menu */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AA50215D1F5D8D2E00DEE2BC /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				AA50215E1F5D8D2E00DEE2BC /* GameBoardView.swift */,
+				AA50215F1F5D8D2E00DEE2BC /* GameBoardView.xib */,
+				AA5021601F5D8D2E00DEE2BC /* GameViewController.swift */,
+				AA5021611F5D8D2E00DEE2BC /* LineView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		AA5021621F5D8D2E00DEE2BC /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AA5021631F5D8D2E00DEE2BC /* MainMenuViewController.swift */,
+			);
+			path = "Main Menu";
+			sourceTree = "<group>";
+		};
+		AA5021641F5D8D2E00DEE2BC /* Settings Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Settings Menu";
+			sourceTree = "<group>";
+		};
+		AA5021651F5D8D2E00DEE2BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA5021661F5D8D2E00DEE2BC /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AA50216F1F5D8DB500DEE2BC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA50212A1F58F67C00DEE2BC /* Main.storyboard */,
+				AA50212F1F58F67C00DEE2BC /* LaunchScreen.storyboard */,
+				AA5021701F5D8DB500DEE2BC /* Assets.xcassets */,
+				AA5021711F5D8DB500DEE2BC /* Drawer.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA5021311F58F67C00DEE2BC /* LaunchScreen.storyboard in Resources */,
-				AA50212E1F58F67C00DEE2BC /* Assets.xcassets in Resources */,
 				AA50212C1F58F67C00DEE2BC /* Main.storyboard in Resources */,
-				AA5021511F5D7F9E00DEE2BC /* GameBoardView.xib in Resources */,
+				AA50216A1F5D8D2E00DEE2BC /* GameBoardView.xib in Resources */,
+				AA5021721F5D8DB500DEE2BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,13 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA50214B1F5BA45A00DEE2BC /* GameViewController.swift in Sources */,
-				AA5021491F5BA36300DEE2BC /* Drawer.swift in Sources */,
-				AA5021291F58F67C00DEE2BC /* ViewController.swift in Sources */,
-				AA5021471F5A519400DEE2BC /* UIView.swift in Sources */,
+				AA50216E1F5D8D2E00DEE2BC /* UIView.swift in Sources */,
+				AA50216B1F5D8D2E00DEE2BC /* GameViewController.swift in Sources */,
+				AA50216C1F5D8D2E00DEE2BC /* LineView.swift in Sources */,
+				AA50216D1F5D8D2E00DEE2BC /* MainMenuViewController.swift in Sources */,
+				AA5021731F5D8DB500DEE2BC /* Drawer.swift in Sources */,
+				AA5021691F5D8D2E00DEE2BC /* GameBoardView.swift in Sources */,
 				AA5021271F58F67C00DEE2BC /* AppDelegate.swift in Sources */,
-				AA50214F1F5BB20E00DEE2BC /* LineView.swift in Sources */,
-				AA50214D1F5BA4F800DEE2BC /* GameBoardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +303,7 @@
 				AA50212B1F58F67C00DEE2BC /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		AA50212F1F58F67C00DEE2BC /* LaunchScreen.storyboard */ = {
@@ -263,6 +312,7 @@
 				AA5021301F58F67C00DEE2BC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -436,6 +486,7 @@
 				AA5021421F58F67C00DEE2BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA5021431F58F67C00DEE2BC /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +495,7 @@
 				AA5021451F58F67C00DEE2BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
