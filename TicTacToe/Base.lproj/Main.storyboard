@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -233,101 +232,8 @@
                             </label>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mf0-3G-mFX" userLabel="game board" customClass="GameBoardView" customModule="TicTacToe" customModuleProvider="target">
                                 <rect key="frame" x="54" y="215" width="306" height="306"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5r-7t-fGi" userLabel="top left button">
-                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666666" height="102"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neh-Rz-xaz" userLabel="top center button">
-                                        <rect key="frame" x="102.66666666666667" y="0.0" width="102.00000000000001" height="102"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2G-oM-cWM" userLabel="top right button">
-                                        <rect key="frame" x="204" y="0.0" width="102" height="102"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sn-zB-oQr" userLabel="center left button">
-                                        <rect key="frame" x="0.0" y="102" width="101.66666666666666" height="101.66666666666669"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpR-F5-EQb" userLabel="center button">
-                                        <rect key="frame" x="101.66666666666664" y="102" width="102.33333333333336" height="101.66666666666669"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-Hr-hJd" userLabel="center right button">
-                                        <rect key="frame" x="204" y="101" width="102" height="102.66666666666669"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYU-mh-jfI" userLabel="bottom left button">
-                                        <rect key="frame" x="0.0" y="203.66666666666669" width="101.66666666666666" height="101.99999999999994"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mF-Xo-Gve" userLabel="bottom center button">
-                                        <rect key="frame" x="102" y="203.66666666666669" width="102" height="101.99999999999994"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltv-bH-lmr" userLabel="bottom right button">
-                                        <rect key="frame" x="204" y="203.66666666666669" width="102" height="102.33333333333331"/>
-                                    </button>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFN-OA-naU" userLabel="left vertical" customClass="VerticalLineView" customModule="TicTacToe" customModuleProvider="target">
-                                        <rect key="frame" x="94" y="0.0" width="15.666666666666657" height="306"/>
-                                    </view>
-                                    <view opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S1G-Ne-03D" userLabel="right vertical" customClass="VerticalLineView" customModule="TicTacToe" customModuleProvider="target">
-                                        <rect key="frame" x="196" y="-1" width="15.666666666666686" height="306"/>
-                                    </view>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-IV-OmH" userLabel="top horizontal" customClass="HorizontalLineView" customModule="TicTacToe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="95" width="306" height="14.666666666666686"/>
-                                    </view>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9V-vd-Re8" userLabel="bottom horizontal" customClass="HorizontalLineView" customModule="TicTacToe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="196" width="306" height="15"/>
-                                    </view>
-                                </subviews>
                                 <constraints>
-                                    <constraint firstItem="P8h-Hr-hJd" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="2W6-MG-DMd"/>
-                                    <constraint firstItem="SFN-OA-naU" firstAttribute="centerY" secondItem="mf0-3G-mFX" secondAttribute="centerY" id="3qa-4M-MQo"/>
-                                    <constraint firstItem="3mF-Xo-Gve" firstAttribute="centerX" secondItem="mf0-3G-mFX" secondAttribute="centerX" id="4gu-dj-Fdl"/>
-                                    <constraint firstItem="d5r-7t-fGi" firstAttribute="leading" secondItem="mf0-3G-mFX" secondAttribute="leading" id="4x1-yi-TZ5"/>
-                                    <constraint firstItem="neh-Rz-xaz" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="7DJ-jK-05g"/>
-                                    <constraint firstAttribute="bottom" secondItem="IYU-mh-jfI" secondAttribute="bottom" id="7e6-k3-eJw"/>
-                                    <constraint firstItem="3mF-Xo-Gve" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="7iB-xD-hDT"/>
-                                    <constraint firstItem="r9V-vd-Re8" firstAttribute="centerX" secondItem="mf0-3G-mFX" secondAttribute="centerX" id="7iC-KI-mql"/>
-                                    <constraint firstAttribute="bottom" secondItem="3mF-Xo-Gve" secondAttribute="bottom" id="7lU-60-Itg"/>
-                                    <constraint firstItem="P8h-Hr-hJd" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="9dv-0b-NXE"/>
-                                    <constraint firstItem="SFN-OA-naU" firstAttribute="centerX" secondItem="OpR-F5-EQb" secondAttribute="leading" id="A0C-Rz-OK5"/>
-                                    <constraint firstItem="ltv-bH-lmr" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="B3J-A3-i1J"/>
-                                    <constraint firstItem="i2G-oM-cWM" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="BzB-1a-eop"/>
-                                    <constraint firstAttribute="trailing" secondItem="i2G-oM-cWM" secondAttribute="trailing" id="HRT-9b-HFr"/>
-                                    <constraint firstItem="IYU-mh-jfI" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="Iib-kP-QOp"/>
-                                    <constraint firstItem="3mF-Xo-Gve" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="JlZ-Me-FDP"/>
-                                    <constraint firstItem="OpR-F5-EQb" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="LLW-f7-d4S"/>
-                                    <constraint firstAttribute="trailing" secondItem="ltv-bH-lmr" secondAttribute="trailing" id="MGC-cB-SI8"/>
-                                    <constraint firstItem="i2G-oM-cWM" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="MRa-jv-Be7"/>
-                                    <constraint firstItem="IYU-mh-jfI" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="MiN-34-Jyx"/>
-                                    <constraint firstItem="f9W-IV-OmH" firstAttribute="centerX" secondItem="mf0-3G-mFX" secondAttribute="centerX" id="N10-5O-0Dl"/>
-                                    <constraint firstItem="r9V-vd-Re8" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" id="PLq-Pk-i99"/>
-                                    <constraint firstItem="neh-Rz-xaz" firstAttribute="top" secondItem="mf0-3G-mFX" secondAttribute="top" id="QoY-Tg-vBp"/>
-                                    <constraint firstItem="f9W-IV-OmH" firstAttribute="centerY" secondItem="OpR-F5-EQb" secondAttribute="top" id="SXt-YO-dys"/>
-                                    <constraint firstAttribute="bottom" secondItem="ltv-bH-lmr" secondAttribute="bottom" id="U1t-bW-AGg"/>
-                                    <constraint firstItem="f9W-IV-OmH" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:20" id="VBZ-Uh-tjV"/>
-                                    <constraint firstItem="neh-Rz-xaz" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="YR0-lJ-JLK"/>
-                                    <constraint firstItem="SFN-OA-naU" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" id="aDK-ur-edI"/>
-                                    <constraint firstItem="neh-Rz-xaz" firstAttribute="centerX" secondItem="mf0-3G-mFX" secondAttribute="centerX" id="bOx-3G-G4a"/>
-                                    <constraint firstItem="IYU-mh-jfI" firstAttribute="leading" secondItem="mf0-3G-mFX" secondAttribute="leading" id="cGg-xV-4Zc"/>
-                                    <constraint firstItem="P8h-Hr-hJd" firstAttribute="centerY" secondItem="mf0-3G-mFX" secondAttribute="centerY" id="dcX-jC-Mxa"/>
-                                    <constraint firstItem="9Sn-zB-oQr" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" identifier="1" id="fIP-bw-Lrt"/>
-                                    <constraint firstItem="9Sn-zB-oQr" firstAttribute="centerY" secondItem="mf0-3G-mFX" secondAttribute="centerY" id="h1Y-Qs-cAx"/>
-                                    <constraint firstAttribute="trailing" secondItem="P8h-Hr-hJd" secondAttribute="trailing" id="hZR-w6-TPi"/>
-                                    <constraint firstItem="OpR-F5-EQb" firstAttribute="centerX" secondItem="mf0-3G-mFX" secondAttribute="centerX" id="jpy-pR-m6b"/>
-                                    <constraint firstItem="S1G-Ne-03D" firstAttribute="centerY" secondItem="mf0-3G-mFX" secondAttribute="centerY" id="lXI-ch-lb8"/>
                                     <constraint firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="height" id="nuS-bW-DOm"/>
-                                    <constraint firstItem="S1G-Ne-03D" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:20" id="oN9-Md-6KZ"/>
-                                    <constraint firstItem="S1G-Ne-03D" firstAttribute="centerX" secondItem="OpR-F5-EQb" secondAttribute="trailing" id="plm-In-ncz"/>
-                                    <constraint firstItem="r9V-vd-Re8" firstAttribute="centerY" secondItem="OpR-F5-EQb" secondAttribute="bottom" id="rHn-FE-EPa"/>
-                                    <constraint firstItem="OpR-F5-EQb" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="raA-3s-6f1"/>
-                                    <constraint firstItem="d5r-7t-fGi" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="sp4-Hp-dRN"/>
-                                    <constraint firstItem="d5r-7t-fGi" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="sqM-lT-0Yp"/>
-                                    <constraint firstItem="S1G-Ne-03D" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" id="uNY-Le-yVm"/>
-                                    <constraint firstItem="OpR-F5-EQb" firstAttribute="centerY" secondItem="mf0-3G-mFX" secondAttribute="centerY" id="unv-PO-2kP"/>
-                                    <constraint firstItem="SFN-OA-naU" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:20" id="v2f-BN-fas"/>
-                                    <constraint firstItem="f9W-IV-OmH" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" id="vSg-Oc-iBs"/>
-                                    <constraint firstItem="9Sn-zB-oQr" firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="width" multiplier="1:3" id="voV-dd-OTI"/>
-                                    <constraint firstItem="d5r-7t-fGi" firstAttribute="top" secondItem="mf0-3G-mFX" secondAttribute="top" id="wAE-ju-xXO"/>
-                                    <constraint firstItem="r9V-vd-Re8" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:20" id="xgZ-IO-rPh"/>
-                                    <constraint firstItem="9Sn-zB-oQr" firstAttribute="leading" secondItem="mf0-3G-mFX" secondAttribute="leading" id="xjg-a0-0mZ"/>
-                                    <constraint firstItem="i2G-oM-cWM" firstAttribute="top" secondItem="mf0-3G-mFX" secondAttribute="top" id="z7s-zK-4jJ"/>
-                                    <constraint firstItem="ltv-bH-lmr" firstAttribute="height" secondItem="mf0-3G-mFX" secondAttribute="height" multiplier="1:3" id="zxe-WX-3Pn"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -358,11 +264,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="bottomHorizontalLine" destination="r9V-vd-Re8" id="ReW-Vc-mVM"/>
                         <outlet property="gameBoardView" destination="mf0-3G-mFX" id="uym-nB-tbY"/>
-                        <outlet property="leftVerticalLine" destination="SFN-OA-naU" id="kuS-iN-Ag0"/>
-                        <outlet property="rightVerticalLine" destination="S1G-Ne-03D" id="hgB-R2-5KV"/>
-                        <outlet property="topHorizontalLine" destination="f9W-IV-OmH" id="ckf-t2-PPv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1J-6M-pJz" userLabel="First Responder" sceneMemberID="firstResponder"/>

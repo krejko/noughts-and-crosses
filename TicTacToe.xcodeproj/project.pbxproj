@@ -18,6 +18,7 @@
 		AA50214B1F5BA45A00DEE2BC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50214A1F5BA45A00DEE2BC /* GameViewController.swift */; };
 		AA50214D1F5BA4F800DEE2BC /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50214C1F5BA4F800DEE2BC /* GameBoardView.swift */; };
 		AA50214F1F5BB20E00DEE2BC /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA50214E1F5BB20E00DEE2BC /* LineView.swift */; };
+		AA5021511F5D7F9E00DEE2BC /* GameBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5021501F5D7F9E00DEE2BC /* GameBoardView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		AA50214A1F5BA45A00DEE2BC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		AA50214C1F5BA4F800DEE2BC /* GameBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
 		AA50214E1F5BB20E00DEE2BC /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		AA5021501F5D7F9E00DEE2BC /* GameBoardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameBoardView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				AA50214A1F5BA45A00DEE2BC /* GameViewController.swift */,
 				AA50214C1F5BA4F800DEE2BC /* GameBoardView.swift */,
 				AA50214E1F5BB20E00DEE2BC /* LineView.swift */,
+				AA5021501F5D7F9E00DEE2BC /* GameBoardView.xib */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				AA5021311F58F67C00DEE2BC /* LaunchScreen.storyboard in Resources */,
 				AA50212E1F58F67C00DEE2BC /* Assets.xcassets in Resources */,
 				AA50212C1F58F67C00DEE2BC /* Main.storyboard in Resources */,
+				AA5021511F5D7F9E00DEE2BC /* GameBoardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
