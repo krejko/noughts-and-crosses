@@ -25,7 +25,7 @@ class Game: NSObject {
     private let players: [(type: PlayerType, piece: GamePiece)]
     private lazy var currentPlayerIndex = 0
     private lazy var boardLayout: [(cellLocation: CellLocation, piece: GamePiece)] = []
-
+    
     weak var delegate:GameDelegate?
     
     
@@ -37,40 +37,52 @@ class Game: NSObject {
                    (secondPlayerType, secondPlayerPiece)]
     }
     
-    func takeNextTurn(selectedCellLocation: CellLocation) {
-        var location = selectedCellLocation
-        
-        if currentPlayer().type == PlayerType.computer {
-            
-            //TODO check for valid next
-            location = CellLocation.random()
+    func takeNextTurn(playerIndex: Int, selectedCellLocation: CellLocation) {
+        if playerIndex != currentPlayerIndex { // ensure play is in order
+            return
         }
         
-        let success = recordSelectedCellLocation(selectedCellLocation: location)
-
-        if !success {
-            
-        }else {
+        let success = recordSelectedCellLocation(selectedCellLocation: selectedCellLocation)
+        
+        if success {  // ensure valid, non-occupied location
             delegate?.didFinishTurn(cellLocation: selectedCellLocation, piece: currentPlayer().piece)
+            checkEndGameCondition()
+            endTurn()
+            
+            if currentPlayer().type == PlayerType.computer {
+                triggerComputerTurn()
+            }
         }
-        
-        // check for win condition
-
-        //
-
-        
     }
     
     func recordSelectedCellLocation(selectedCellLocation: CellLocation) -> Bool {
         if occupiedLocations().contains(selectedCellLocation){
-            print("Cell Occupied: \(String(describing: selectedCellLocation))" )
             return false
         }
         
-        // add the selected location for the player
         boardLayout.append((cellLocation: selectedCellLocation, currentPlayer().piece))
-        
         return true
+    }
+    
+    func checkEndGameCondition () {
+        if availableLocations().count > 0 {  // Draw
+            
+        }
+            
+    }
+    
+    func endTurn () {
+        currentPlayerIndex = (currentPlayerIndex == 0) ? 1 : 0
+    }
+    
+    func triggerComputerTurn() {
+        if availableLocations().count > 0 {
+            let location = randomAvailableLocation()
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(0.5)) {
+                self.takeNextTurn(playerIndex: self.currentPlayerIndex,
+                                  selectedCellLocation: location)
+            }
+        }
     }
     
     // MARK - Helper Functions
@@ -81,6 +93,20 @@ class Game: NSObject {
     
     func occupiedLocations () -> Array<CellLocation> {
         return boardLayout.map { $0.cellLocation }
+    }
+    
+    func availableLocations () -> Array<CellLocation> {
+        return CellLocation.all().filter { !occupiedLocations().contains($0) }
+    }
+    
+    func randomAvailableLocation() -> CellLocation {
+        let locations = availableLocations()
+        let randomIndex = Int(arc4random_uniform(UInt32(locations.count)))
+        return locations[randomIndex]
+    }
+    
+    func locationsForPiece (piece: GamePiece) -> Array<CellLocation> {
+        return boardLayout.filter{$0.piece == piece}.map{$0.cellLocation}
     }
     
 }

@@ -19,18 +19,23 @@ enum CellLocation: Int {
     bottomCenter,
     bottomRight
     
-    private static let _count: CellLocation.RawValue = {
-        // find the maximum enum value
-        var maxValue: Int = 0
-        while let _ = CellLocation(rawValue: maxValue) {
-            maxValue += 1
+    static func all() -> Array <CellLocation> {
+        var locations : Array <CellLocation> = []
+        for location in iterateEnum(self) {
+            locations.append(location)
         }
-        return maxValue
-    }()
-    
-    static func random() -> CellLocation {
-        // pick and return a new value
-        let rand = Int(arc4random_uniform(UInt32(_count)))
-        return CellLocation(rawValue: rand)!
+        return locations
     }
+    
+    static func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
+        var i = 0
+        return AnyIterator {
+            let next = withUnsafeBytes(of: &i) { $0.load(as: T.self) }
+            if next.hashValue != i { return nil }
+            i += 1
+            return next
+        }
+    }
+        
 }
+

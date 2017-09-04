@@ -36,14 +36,15 @@ class GameViewController: UIViewController {
 
 extension GameViewController: GameBoardViewDelegate {
     func didSelectCell(cellLocation: CellLocation) {
-        print("Cell Selected: \(String(describing: cellLocation))" )
-        game.takeNextTurn(selectedCellLocation: cellLocation)
+        // !!! put in actual player index
+        game.takeNextTurn(playerIndex: 0, selectedCellLocation: cellLocation)
     }
 }
 
 extension GameViewController: GameDelegate {
     func didFinishTurn(cellLocation: CellLocation, piece: GamePiece) {
         gameBoardView.draw(piece: piece, location: cellLocation)
+        // TODO: Update Next
     }
 }
 
