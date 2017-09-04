@@ -1,5 +1,5 @@
 //
-//  CellLocation.swift
+//  Location.swift
 //  TicTacToe
 //
 //  Created by Kevin Rejko on 9/4/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CellLocation: Int {
+enum Location: Int {
     case topLeft,
     topCenter,
     topRight,
@@ -19,8 +19,8 @@ enum CellLocation: Int {
     bottomCenter,
     bottomRight
     
-    static func all() -> Array <CellLocation> {
-        var locations : Array <CellLocation> = []
+    static func all() -> Array <Location> {
+        var locations : Array <Location> = []
         for location in iterateEnum(self) {
             locations.append(location)
         }

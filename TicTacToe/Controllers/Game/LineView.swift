@@ -56,7 +56,7 @@ class LineView: UIView {
     func updateLine()  {
         lineLengthPercent += _drawingIncrementPercent
 
-        if lineLengthPercent >= 1.0 {
+        if _drawingTimer != nil && lineLengthPercent >= 1.0 {
             _drawingTimer!.invalidate()
             _drawingTimer = nil
         }

@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol GameBoardViewDelegate: class {
-    func didSelectCell(cellLocation: CellLocation)
+    func didSelectCell(location: Location)
 }
 
 
@@ -36,7 +36,7 @@ class GameBoardView: UIView {
     
     weak var delegate:GameBoardViewDelegate?
     
-    private var _pieceLocationMap: Dictionary<CellLocation, PieceView>?
+    private var _pieceLocationMap: Dictionary<Location, PieceView>?
 
     // MARK: - Initialization
     
@@ -63,20 +63,20 @@ class GameBoardView: UIView {
         return view
     }
     
-    var pieceLocationMap: Dictionary<CellLocation, PieceView> {
+    var pieceLocationMap: Dictionary<Location, PieceView> {
         set (pieceLocationMap){}
         get {
             if _pieceLocationMap == nil {
                 _pieceLocationMap = [
-                    CellLocation.topLeft: topLeftPiece,
-                    CellLocation.topCenter: topCenterPiece,
-                    CellLocation.topRight: topRightPiece,
-                    CellLocation.middleLeft: middleLeftPiece,
-                    CellLocation.middleCenter: middleCenterPiece,
-                    CellLocation.middleRight: middleRightPiece,
-                    CellLocation.bottomLeft: bottomLeftPiece,
-                    CellLocation.bottomCenter: bottomCenterPiece,
-                    CellLocation.bottomRight: bottomRightPiece
+                    Location.topLeft: topLeftPiece,
+                    Location.topCenter: topCenterPiece,
+                    Location.topRight: topRightPiece,
+                    Location.middleLeft: middleLeftPiece,
+                    Location.middleCenter: middleCenterPiece,
+                    Location.middleRight: middleRightPiece,
+                    Location.bottomLeft: bottomLeftPiece,
+                    Location.bottomCenter: bottomCenterPiece,
+                    Location.bottomRight: bottomRightPiece
                 ]
 
             }
@@ -95,7 +95,7 @@ class GameBoardView: UIView {
         bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 3))
     }
     
-    func draw(piece: GamePiece, location: CellLocation) {
+    func draw(piece: GamePiece, location: Location) {
         let pieceView = pieceLocationMap[location]
         pieceView?.setPiece(piece: piece, duration: 0.2)
     }
@@ -103,7 +103,7 @@ class GameBoardView: UIView {
     // MARK: - Action Handling
     
     @IBAction func cellSelected(_ sender: UIButton) {
-        let location = CellLocation(rawValue: sender.tag)
-        delegate?.didSelectCell(cellLocation: location!)
+        let location = Location(rawValue: sender.tag)
+        delegate?.didSelectCell(location: location!)
     }
 }

@@ -35,16 +35,27 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: GameBoardViewDelegate {
-    func didSelectCell(cellLocation: CellLocation) {
+    func didSelectCell(location: Location) {
         // !!! put in actual player index
-        game.takeNextTurn(playerIndex: 0, selectedCellLocation: cellLocation)
+        game.takeNextTurn(playerIndex: 0, selectedLocation: location)
     }
 }
 
 extension GameViewController: GameDelegate {
-    func didFinishTurn(cellLocation: CellLocation, piece: GamePiece) {
-        gameBoardView.draw(piece: piece, location: cellLocation)
+    func didFinishTurn(location: Location, piece: GamePiece) {
+        gameBoardView.draw(piece: piece, location: location)
         // TODO: Update Next
     }
+    
+    func didWinGame(player: (type: PlayerType, piece: GamePiece),
+                    winConditions: Array<WinCondition>) {
+        print("\(player.piece) is the winner with ")
+        dump(winConditions)
+    }
+    
+    func didEndGameWithDraw () {
+        print("Game ends in draw")
+    }
+
 }
 

@@ -9,25 +9,64 @@
 import Foundation
 
 protocol GameDelegate: class {
-    func didFinishTurn(cellLocation: CellLocation, piece: GamePiece)
+    func didFinishTurn(location: Location, piece: GamePiece)
+    func didWinGame(player: (type: PlayerType, piece: GamePiece),
+                    winConditions: Array<WinCondition>)
+    func didEndGameWithDraw ()
 }
-
 
 enum PlayerType {
     case human, computer
 }
 
-
+enum WinCondition {
+    case leftDiagonal,
+    rightDiagonal, 
+    horizontalTop,
+    horizontalMiddle,
+    horizontalBottom,
+    verticalLeft,
+    verticalCenter,
+    verticalRight
+}
 
 class Game: NSObject {
     
     
     private let players: [(type: PlayerType, piece: GamePiece)]
     private lazy var currentPlayerIndex = 0
-    private lazy var boardLayout: [(cellLocation: CellLocation, piece: GamePiece)] = []
+    private lazy var boardLayout: [(location: Location, piece: GamePiece)] = []
     
     weak var delegate:GameDelegate?
     
+    private lazy var winConditionMap: Dictionary <WinCondition, [Location]> = [
+        WinCondition.leftDiagonal: [Location.topLeft,
+                                    Location.middleCenter,
+                                    Location.bottomRight],
+        WinCondition.rightDiagonal: [Location.topRight,
+                                     Location.middleCenter,
+                                     Location.bottomLeft],
+        WinCondition.horizontalTop: [Location.topRight,
+                                     Location.topCenter,
+                                     Location.topRight],
+        WinCondition.horizontalMiddle: [Location.middleLeft,
+                                        Location.middleCenter,
+                                        Location.middleRight],
+        WinCondition.horizontalBottom: [Location.bottomLeft,
+                                        Location.bottomCenter,
+                                        Location.bottomRight],
+        WinCondition.verticalLeft: [Location.topLeft,
+                                    Location.middleLeft,
+                                    Location.bottomLeft],
+        WinCondition.verticalCenter: [Location.topCenter,
+                                      Location.middleCenter,
+                                      Location.bottomCenter],
+        WinCondition.verticalRight: [Location.topRight,
+                                     Location.middleRight,
+                                     Location.bottomRight]
+    ]
+    
+    // MARK: - Initializers
     
     init(firstPlayerType: PlayerType = PlayerType.human,
          firstPlayerPiece: GamePiece = GamePiece.x,
@@ -37,15 +76,17 @@ class Game: NSObject {
                    (secondPlayerType, secondPlayerPiece)]
     }
     
-    func takeNextTurn(playerIndex: Int, selectedCellLocation: CellLocation) {
+    // MARK: - Turn Phases
+    
+    func takeNextTurn(playerIndex: Int, selectedLocation: Location) {
         if playerIndex != currentPlayerIndex { // ensure play is in order
             return
         }
         
-        let success = recordSelectedCellLocation(selectedCellLocation: selectedCellLocation)
+        let success = recordSelectedLocation(selectedLocation: selectedLocation)
         
         if success {  // ensure valid, non-occupied location
-            delegate?.didFinishTurn(cellLocation: selectedCellLocation, piece: currentPlayer().piece)
+            delegate?.didFinishTurn(location: selectedLocation, piece: currentPlayer().piece)
             checkEndGameCondition()
             endTurn()
             
@@ -55,20 +96,38 @@ class Game: NSObject {
         }
     }
     
-    func recordSelectedCellLocation(selectedCellLocation: CellLocation) -> Bool {
-        if occupiedLocations().contains(selectedCellLocation){
+    func recordSelectedLocation(selectedLocation: Location) -> Bool {
+        if occupiedLocations().contains(selectedLocation){
             return false
         }
         
-        boardLayout.append((cellLocation: selectedCellLocation, currentPlayer().piece))
+        boardLayout.append((location: selectedLocation, currentPlayer().piece))
         return true
     }
     
     func checkEndGameCondition () {
-        if availableLocations().count > 0 {  // Draw
-            
+        
+        let winConditions = self.winConditions(piece: currentPlayer().piece)
+        if winConditions != nil && (winConditions?.count)! > 0 {
+            delegate?.didWinGame(player: currentPlayer(), winConditions: winConditions!)
+        } else if availableLocations().count <= 0 {
+            delegate?.didEndGameWithDraw()
         }
-            
+    }
+    
+    func winConditions(piece: GamePiece) -> Array<WinCondition>? {
+        let pieceLocations = locationsForPiece(piece: piece)
+        if pieceLocations.count < 3 {
+            return nil
+        }
+        
+        var winConditions = Array<WinCondition>()
+        for (winCondition, winConditionLocations) in winConditionMap{
+            if pieceLocations.contains(array: winConditionLocations){
+                winConditions.append(winCondition)
+            }
+        }
+        return winConditions
     }
     
     func endTurn () {
@@ -80,33 +139,42 @@ class Game: NSObject {
             let location = randomAvailableLocation()
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(0.5)) {
                 self.takeNextTurn(playerIndex: self.currentPlayerIndex,
-                                  selectedCellLocation: location)
+                                  selectedLocation: location)
             }
         }
     }
     
-    // MARK - Helper Functions
+    // MARK: - Helper Functions
     
     func currentPlayer () -> (type: PlayerType, piece: GamePiece) {
         return players[currentPlayerIndex]
     }
     
-    func occupiedLocations () -> Array<CellLocation> {
-        return boardLayout.map { $0.cellLocation }
+    func occupiedLocations () -> Array<Location> {
+        return boardLayout.map { $0.location }
     }
     
-    func availableLocations () -> Array<CellLocation> {
-        return CellLocation.all().filter { !occupiedLocations().contains($0) }
+    func availableLocations () -> Array<Location> {
+        return Location.all().filter { !occupiedLocations().contains($0) }
     }
     
-    func randomAvailableLocation() -> CellLocation {
+    func randomAvailableLocation() -> Location {
         let locations = availableLocations()
         let randomIndex = Int(arc4random_uniform(UInt32(locations.count)))
         return locations[randomIndex]
     }
     
-    func locationsForPiece (piece: GamePiece) -> Array<CellLocation> {
-        return boardLayout.filter{$0.piece == piece}.map{$0.cellLocation}
+    func locationsForPiece (piece: GamePiece) -> Array<Location> {
+        return boardLayout.filter{$0.piece == piece}.map{$0.location}
     }
     
+}
+
+extension Array where Element: Equatable {
+    func contains(array: [Element]) -> Bool {
+        for item in array {
+            if !self.contains(item) { return false }
+        }
+        return true
+    }
 }
