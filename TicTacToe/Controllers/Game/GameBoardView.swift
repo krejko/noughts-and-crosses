@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+protocol GameBoardViewDelegate: class {
+    func didSelectCell(cellLocation: CellLocation)
+}
+
+
 @IBDesignable
 class GameBoardView: UIView {
 
@@ -17,6 +23,9 @@ class GameBoardView: UIView {
     @IBOutlet weak var rightVerticalLine: VerticalLineView!
     @IBOutlet weak var topHorizontalLine: HorizontalLineView!
     @IBOutlet weak var bottomHorizontalLine: HorizontalLineView!
+    
+    weak var delegate:GameBoardViewDelegate?
+
 
     // MARK: - Initialization
     
@@ -47,18 +56,16 @@ class GameBoardView: UIView {
 
     func drawBoard(animated: Bool) {
         let animationSpeed = CGFloat(0.15)
-        self.leftVerticalLine.drawLine(withDuration: animationSpeed)
-        self.rightVerticalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed))
-        self.topHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 2))
-        self.bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 3))
+        leftVerticalLine.drawLine(withDuration: animationSpeed)
+        rightVerticalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed))
+        topHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 2))
+        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 3))
     }
-    
     
     // MARK: - Action Handling
     
     @IBAction func cellSelected(_ sender: UIButton) {
         let location = CellLocation(rawValue: sender.tag)
-        print("Cell Selected: \(String(describing: location))" )
+        delegate?.didSelectCell(cellLocation: location!)
     }
-    
 }
