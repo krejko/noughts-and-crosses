@@ -16,10 +16,11 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameBoardView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.gameBoardView.drawBoard(animated: animated)
+        gameBoardView.drawBoard(animated: animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,3 +29,8 @@ class GameViewController: UIViewController {
     }
 }
 
+extension GameViewController: GameBoardViewDelegate {
+    func didSelectCell(cellLocation: CellLocation) {
+        print("Cell Selected: \(String(describing: cellLocation))" )
+    }
+}

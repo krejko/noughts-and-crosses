@@ -27,27 +27,57 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xe-R7-PqT" userLabel="top left button">
                     <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Tq2-LD-1V2"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVX-ty-uA4" userLabel="top center button">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVX-ty-uA4" userLabel="top center button">
                     <rect key="frame" x="125" y="0.0" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="gJ1-Lt-dAb"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-pz-Brx" userLabel="top right button">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-pz-Brx" userLabel="top right button">
                     <rect key="frame" x="250" y="0.0" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Mgv-mm-vrd"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSh-Wg-pi4" userLabel="center left button">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSh-Wg-pi4" userLabel="center left button">
                     <rect key="frame" x="0.0" y="125" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Hgc-5U-CgI"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-eD-fVw" userLabel="center button">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-eD-fVw" userLabel="center button">
                     <rect key="frame" x="125" y="125" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="jUc-7F-Tsh"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fi-1s-J3q" userLabel="bottom left button">
+                <button opaque="NO" tag="5" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOS-MI-asL" userLabel="center right button">
+                    <rect key="frame" x="250" y="125" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="6gA-rK-fL6"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fi-1s-J3q" userLabel="bottom left button">
                     <rect key="frame" x="0.0" y="250" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="8VQ-UD-aLw"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0q-VI-d1A" userLabel="bottom center button">
+                <button opaque="NO" tag="7" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0q-VI-d1A" userLabel="bottom center button">
                     <rect key="frame" x="125" y="250" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="xTL-3i-OhK"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eL-Lg-9Ro" userLabel="bottom right button">
+                <button opaque="NO" tag="8" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eL-Lg-9Ro" userLabel="bottom right button">
                     <rect key="frame" x="250" y="250" width="125" height="125"/>
+                    <connections>
+                        <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Dbw-Ly-znv"/>
+                    </connections>
                 </button>
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZP-UO-fs8" userLabel="left vertical" customClass="VerticalLineView" customModule="TicTacToe" customModuleProvider="target">
                     <rect key="frame" x="116" y="0.0" width="18.5" height="375"/>
@@ -61,9 +91,6 @@
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZT-nY-bDU" userLabel="bottom horizontal" customClass="HorizontalLineView" customModule="TicTacToe" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="240.5" width="375" height="19"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOS-MI-asL" userLabel="center right button">
-                    <rect key="frame" x="250" y="125" width="125" height="125"/>
-                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="rSh-Wg-pi4" firstAttribute="centerY" secondItem="FpC-FT-Pa3" secondAttribute="centerY" id="1gK-g7-1gp"/>

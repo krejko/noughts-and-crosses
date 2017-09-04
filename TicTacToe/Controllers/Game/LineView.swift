@@ -25,7 +25,7 @@ class LineView: UIView {
             } else {
                 _lineLengthPercent = newLineLengthPercent
             }
-            self.setNeedsDisplay()
+            setNeedsDisplay()
         }
         get {
             return _lineLengthPercent
@@ -33,7 +33,7 @@ class LineView: UIView {
     }
     
     func drawLine(withDuration: CGFloat = 1, delay: Double = 0.0) {
-        self.setDrawingIncrement(withDuration: withDuration)
+        setDrawingIncrement(withDuration: withDuration)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             self._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self._animationFrequency),
                                                       target: self,
@@ -45,16 +45,16 @@ class LineView: UIView {
     
     func setDrawingIncrement(withDuration: CGFloat) {
         if (withDuration <= 0) {
-            self._drawingIncrementPercent = CGFloat(1.0)
+            _drawingIncrementPercent = CGFloat(1.0)
         } else {
-            self._drawingIncrementPercent = (self._animationFrequency / withDuration)
+            _drawingIncrementPercent = (_animationFrequency / withDuration)
         }
     }
     
     func updateLine()  {
-        self.lineLengthPercent += self._drawingIncrementPercent
+        lineLengthPercent += _drawingIncrementPercent
 
-        if self.lineLengthPercent >= 1.0 {
+        if lineLengthPercent >= 1.0 {
             _drawingTimer!.invalidate()
             _drawingTimer = nil
         }
@@ -63,14 +63,14 @@ class LineView: UIView {
 
 class VerticalLineView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawVertical_line(vertical_line_length: self.lineLengthPercent, vertical_line_frame: rect)
+        Drawer.drawVertical_line(vertical_line_length: lineLengthPercent, vertical_line_frame: rect)
     }
 }
 
 class HorizontalLineView: LineView {
     
     override func draw(_ rect: CGRect) {
-        Drawer.drawHorizontal_line(horizontal_line_length: self.lineLengthPercent, horizontal_line_frame: rect)
+        Drawer.drawHorizontal_line(horizontal_line_length: lineLengthPercent, horizontal_line_frame: rect)
     }
 }
 
