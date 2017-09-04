@@ -13,15 +13,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameBoardView" customModule="TicTacToe" customModuleProvider="target">
             <connections>
+                <outlet property="bottomCenterPiece" destination="Jsr-63-156" id="wSe-TW-QKb"/>
                 <outlet property="bottomHorizontalLine" destination="fZT-nY-bDU" id="VkH-uk-fwD"/>
+                <outlet property="bottomLeftPiece" destination="mMC-rH-YSW" id="Esa-Cm-gGN"/>
+                <outlet property="bottomRightPiece" destination="aZr-XW-fae" id="DcX-c9-S9w"/>
                 <outlet property="leftVerticalLine" destination="UZP-UO-fs8" id="X7p-PI-6Dz"/>
+                <outlet property="middleCenterPiece" destination="WuZ-Ov-VAo" id="Zmg-0V-sQO"/>
+                <outlet property="middleLeftPiece" destination="DNf-uk-18n" id="MLt-Ra-6Bh"/>
+                <outlet property="middleRightPiece" destination="qOg-s4-hVz" id="FO0-Jc-mdg"/>
                 <outlet property="rightVerticalLine" destination="c0c-JX-zQA" id="obm-tY-GlE"/>
+                <outlet property="topCenterPiece" destination="gpp-64-Wi4" id="yuc-Bk-398"/>
                 <outlet property="topHorizontalLine" destination="kUd-Kk-5G8" id="IBT-FV-aKU"/>
+                <outlet property="topLeftPiece" destination="6qp-TN-uxM" id="YRZ-Gj-wxY"/>
+                <outlet property="topRightPiece" destination="XyT-gR-4J6" id="cVK-WO-hqf"/>
                 <outlet property="view" destination="FpC-FT-Pa3" id="E9Y-z9-led"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view opaque="NO" contentMode="scaleToFill" id="FpC-FT-Pa3" userLabel="game board">
+        <view opaque="NO" contentMode="scaleToFill" id="FpC-FT-Pa3" userLabel="game board" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -31,54 +40,81 @@
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Tq2-LD-1V2"/>
                     </connections>
                 </button>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qp-TN-uxM" userLabel="top left piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="25" y="25" width="75" height="75"/>
+                </view>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVX-ty-uA4" userLabel="top center button">
                     <rect key="frame" x="125" y="0.0" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="gJ1-Lt-dAb"/>
                     </connections>
                 </button>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpp-64-Wi4" userLabel="top center piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="150" y="25" width="75" height="75"/>
+                </view>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-pz-Brx" userLabel="top right button">
                     <rect key="frame" x="250" y="0.0" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Mgv-mm-vrd"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSh-Wg-pi4" userLabel="center left button">
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyT-gR-4J6" userLabel="top right piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="275" y="25" width="75" height="75"/>
+                </view>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSh-Wg-pi4" userLabel="middle left button">
                     <rect key="frame" x="0.0" y="125" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Hgc-5U-CgI"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="4" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-eD-fVw" userLabel="center button">
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNf-uk-18n" userLabel="middle left piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="25" y="150" width="75" height="75"/>
+                </view>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-eD-fVw" userLabel="middle center button">
                     <rect key="frame" x="125" y="125" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="jUc-7F-Tsh"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="5" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOS-MI-asL" userLabel="center right button">
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-Ov-VAo" userLabel="middle center piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="150" y="150" width="75" height="75"/>
+                </view>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOS-MI-asL" userLabel="middle right button">
                     <rect key="frame" x="250" y="125" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="6gA-rK-fL6"/>
                     </connections>
                 </button>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOg-s4-hVz" userLabel="middle right piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="275" y="150" width="75" height="75"/>
+                </view>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fi-1s-J3q" userLabel="bottom left button">
                     <rect key="frame" x="0.0" y="250" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="8VQ-UD-aLw"/>
                     </connections>
                 </button>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMC-rH-YSW" userLabel="bottom left piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="25" y="275" width="75" height="75"/>
+                </view>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0q-VI-d1A" userLabel="bottom center button">
                     <rect key="frame" x="125" y="250" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="xTL-3i-OhK"/>
                     </connections>
                 </button>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jsr-63-156" userLabel="bottom center piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="150" y="275" width="75" height="75"/>
+                </view>
                 <button opaque="NO" tag="8" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eL-Lg-9Ro" userLabel="bottom right button">
                     <rect key="frame" x="250" y="250" width="125" height="125"/>
                     <connections>
                         <action selector="cellSelected:" destination="-1" eventType="touchUpInside" id="Dbw-Ly-znv"/>
                     </connections>
                 </button>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZr-XW-fae" userLabel="bottom right piece" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                    <rect key="frame" x="275" y="275" width="75" height="75"/>
+                </view>
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZP-UO-fs8" userLabel="left vertical" customClass="VerticalLineView" customModule="TicTacToe" customModuleProvider="target">
                     <rect key="frame" x="116" y="0.0" width="18.5" height="375"/>
                 </view>
@@ -93,21 +129,40 @@
                 </view>
             </subviews>
             <constraints>
+                <constraint firstItem="WuZ-Ov-VAo" firstAttribute="centerY" secondItem="Snv-eD-fVw" secondAttribute="centerY" id="0OI-s1-hv3"/>
+                <constraint firstItem="XyT-gR-4J6" firstAttribute="centerY" secondItem="jXj-pz-Brx" secondAttribute="centerY" id="0qm-QN-POx"/>
+                <constraint firstItem="WuZ-Ov-VAo" firstAttribute="width" secondItem="Snv-eD-fVw" secondAttribute="width" multiplier="6:10" id="1Yf-rW-daA"/>
                 <constraint firstItem="rSh-Wg-pi4" firstAttribute="centerY" secondItem="FpC-FT-Pa3" secondAttribute="centerY" id="1gK-g7-1gp"/>
                 <constraint firstItem="7fi-1s-J3q" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="21h-uT-56e"/>
+                <constraint firstItem="XyT-gR-4J6" firstAttribute="height" secondItem="jXj-pz-Brx" secondAttribute="height" multiplier="6:10" id="2YN-lH-EE3"/>
+                <constraint firstItem="mMC-rH-YSW" firstAttribute="centerX" secondItem="7fi-1s-J3q" secondAttribute="centerX" id="2hA-3F-yuv"/>
                 <constraint firstItem="kUd-Kk-5G8" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" id="32I-Zf-aog"/>
                 <constraint firstItem="7fi-1s-J3q" firstAttribute="leading" secondItem="FpC-FT-Pa3" secondAttribute="leading" id="3LV-QC-xXk"/>
+                <constraint firstItem="XyT-gR-4J6" firstAttribute="width" secondItem="jXj-pz-Brx" secondAttribute="width" multiplier="6:10" id="3Vg-ge-1EP"/>
                 <constraint firstItem="u0q-VI-d1A" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="3v6-DX-p4P"/>
                 <constraint firstItem="fZT-nY-bDU" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:20" id="43S-2w-5ce"/>
+                <constraint firstItem="gpp-64-Wi4" firstAttribute="centerY" secondItem="dVX-ty-uA4" secondAttribute="centerY" id="4Cr-kk-ITw"/>
+                <constraint firstItem="mMC-rH-YSW" firstAttribute="centerY" secondItem="7fi-1s-J3q" secondAttribute="centerY" id="4lg-Dl-pP0"/>
                 <constraint firstItem="fOS-MI-asL" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="53W-vR-c3O"/>
+                <constraint firstItem="Jsr-63-156" firstAttribute="height" secondItem="u0q-VI-d1A" secondAttribute="height" multiplier="6:10" id="7Hf-EH-sCv"/>
                 <constraint firstItem="6xe-R7-PqT" firstAttribute="leading" secondItem="FpC-FT-Pa3" secondAttribute="leading" id="7Y7-V4-lic"/>
                 <constraint firstItem="9eL-Lg-9Ro" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="7ld-gh-PQe"/>
+                <constraint firstItem="XyT-gR-4J6" firstAttribute="centerX" secondItem="jXj-pz-Brx" secondAttribute="centerX" id="8Xm-gD-j3I"/>
+                <constraint firstItem="qOg-s4-hVz" firstAttribute="centerY" secondItem="fOS-MI-asL" secondAttribute="centerY" id="8kO-Xh-KoU"/>
                 <constraint firstItem="kUd-Kk-5G8" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:20" id="AdC-Xw-Qx2"/>
+                <constraint firstItem="DNf-uk-18n" firstAttribute="centerY" secondItem="rSh-Wg-pi4" secondAttribute="centerY" id="Asf-AC-f8A"/>
+                <constraint firstItem="WuZ-Ov-VAo" firstAttribute="centerX" secondItem="Snv-eD-fVw" secondAttribute="centerX" id="B1a-dZ-oLZ"/>
+                <constraint firstItem="DNf-uk-18n" firstAttribute="centerX" secondItem="rSh-Wg-pi4" secondAttribute="centerX" id="Dck-aw-lBx"/>
                 <constraint firstItem="u0q-VI-d1A" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:3" id="ES8-eh-3Qm"/>
+                <constraint firstItem="mMC-rH-YSW" firstAttribute="height" secondItem="7fi-1s-J3q" secondAttribute="height" multiplier="6:10" id="Ef5-vD-ns9"/>
                 <constraint firstAttribute="bottom" secondItem="9eL-Lg-9Ro" secondAttribute="bottom" id="Evh-BB-vmV"/>
                 <constraint firstItem="Snv-eD-fVw" firstAttribute="centerX" secondItem="FpC-FT-Pa3" secondAttribute="centerX" id="FCy-DI-lp2"/>
                 <constraint firstAttribute="trailing" secondItem="9eL-Lg-9Ro" secondAttribute="trailing" id="Fqg-lZ-ayJ"/>
                 <constraint firstItem="Snv-eD-fVw" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="Gvo-9G-hk9"/>
+                <constraint firstItem="WuZ-Ov-VAo" firstAttribute="height" secondItem="Snv-eD-fVw" secondAttribute="height" multiplier="6:10" id="Ine-uv-eh5"/>
+                <constraint firstItem="qOg-s4-hVz" firstAttribute="width" secondItem="fOS-MI-asL" secondAttribute="width" multiplier="6:10" id="KCM-eG-ZdC"/>
+                <constraint firstItem="mMC-rH-YSW" firstAttribute="width" secondItem="7fi-1s-J3q" secondAttribute="width" multiplier="6:10" id="KLO-o1-fwB"/>
+                <constraint firstItem="aZr-XW-fae" firstAttribute="centerY" secondItem="9eL-Lg-9Ro" secondAttribute="centerY" id="KlV-f9-O7O"/>
                 <constraint firstItem="jXj-pz-Brx" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="L3j-rA-21f"/>
                 <constraint firstItem="c0c-JX-zQA" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:20" id="Llx-mL-XIe"/>
                 <constraint firstItem="fZT-nY-bDU" firstAttribute="centerX" secondItem="FpC-FT-Pa3" secondAttribute="centerX" id="Lu5-H1-Dzb"/>
@@ -121,30 +176,47 @@
                 <constraint firstAttribute="bottom" secondItem="7fi-1s-J3q" secondAttribute="bottom" id="R9s-u5-mlP"/>
                 <constraint firstItem="dVX-ty-uA4" firstAttribute="top" secondItem="FpC-FT-Pa3" secondAttribute="top" id="RCS-rH-glA"/>
                 <constraint firstItem="9eL-Lg-9Ro" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:3" id="Ro0-zD-nw2"/>
+                <constraint firstItem="Jsr-63-156" firstAttribute="centerX" secondItem="u0q-VI-d1A" secondAttribute="centerX" id="SFq-Bl-637"/>
                 <constraint firstItem="dVX-ty-uA4" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:3" id="TUx-vk-u0J"/>
+                <constraint firstItem="DNf-uk-18n" firstAttribute="width" secondItem="rSh-Wg-pi4" secondAttribute="width" multiplier="6:10" id="Tgh-62-bfQ"/>
                 <constraint firstItem="UZP-UO-fs8" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" id="TjA-b2-C32"/>
                 <constraint firstItem="6xe-R7-PqT" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="Uzf-6o-cNM"/>
                 <constraint firstItem="Snv-eD-fVw" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:3" id="VcX-kZ-OEM"/>
                 <constraint firstItem="UZP-UO-fs8" firstAttribute="centerY" secondItem="FpC-FT-Pa3" secondAttribute="centerY" id="WcV-0o-vAr"/>
+                <constraint firstItem="6qp-TN-uxM" firstAttribute="width" secondItem="6xe-R7-PqT" secondAttribute="width" multiplier="6:10" id="XBk-nP-Diz"/>
+                <constraint firstItem="6qp-TN-uxM" firstAttribute="height" secondItem="6xe-R7-PqT" secondAttribute="height" multiplier="6:10" id="YGT-YO-4eZ"/>
                 <constraint firstItem="dVX-ty-uA4" firstAttribute="centerX" secondItem="FpC-FT-Pa3" secondAttribute="centerX" id="Yke-DR-1l0"/>
                 <constraint firstAttribute="trailing" secondItem="fOS-MI-asL" secondAttribute="trailing" id="Yuw-8D-wCW"/>
                 <constraint firstItem="dVX-ty-uA4" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="aR3-DJ-7Ds"/>
                 <constraint firstItem="c0c-JX-zQA" firstAttribute="centerY" secondItem="FpC-FT-Pa3" secondAttribute="centerY" id="abo-Aq-edj"/>
+                <constraint firstItem="Jsr-63-156" firstAttribute="centerY" secondItem="u0q-VI-d1A" secondAttribute="centerY" id="azq-pA-GPz"/>
                 <constraint firstItem="u0q-VI-d1A" firstAttribute="centerX" secondItem="FpC-FT-Pa3" secondAttribute="centerX" id="bSF-ri-pvZ"/>
+                <constraint firstItem="6qp-TN-uxM" firstAttribute="centerX" secondItem="6xe-R7-PqT" secondAttribute="centerX" id="chX-bl-ys4"/>
                 <constraint firstItem="kUd-Kk-5G8" firstAttribute="centerY" secondItem="Snv-eD-fVw" secondAttribute="top" id="d0X-DP-BtA"/>
+                <constraint firstItem="qOg-s4-hVz" firstAttribute="height" secondItem="fOS-MI-asL" secondAttribute="height" multiplier="6:10" id="eF6-nr-6Rv"/>
                 <constraint firstItem="c0c-JX-zQA" firstAttribute="centerX" secondItem="Snv-eD-fVw" secondAttribute="trailing" id="ezl-N5-0d1"/>
+                <constraint firstItem="aZr-XW-fae" firstAttribute="width" secondItem="9eL-Lg-9Ro" secondAttribute="width" multiplier="6:10" id="f20-vo-CFy"/>
                 <constraint firstItem="fOS-MI-asL" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:3" id="g36-mp-Z5E"/>
+                <constraint firstItem="gpp-64-Wi4" firstAttribute="height" secondItem="dVX-ty-uA4" secondAttribute="height" multiplier="6:10" id="hZM-ji-Rvr"/>
                 <constraint firstItem="Snv-eD-fVw" firstAttribute="centerY" secondItem="FpC-FT-Pa3" secondAttribute="centerY" id="hhv-dP-60B"/>
                 <constraint firstItem="fZT-nY-bDU" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" id="i8w-y5-y7f"/>
                 <constraint firstItem="UZP-UO-fs8" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:20" id="iwg-Do-ZmS"/>
+                <constraint firstItem="aZr-XW-fae" firstAttribute="height" secondItem="9eL-Lg-9Ro" secondAttribute="height" multiplier="6:10" id="j7j-tg-wEg"/>
+                <constraint firstItem="Jsr-63-156" firstAttribute="width" secondItem="u0q-VI-d1A" secondAttribute="width" multiplier="6:10" id="jOj-be-ngM"/>
                 <constraint firstItem="jXj-pz-Brx" firstAttribute="top" secondItem="FpC-FT-Pa3" secondAttribute="top" id="kVk-tO-jOJ"/>
                 <constraint firstAttribute="trailing" secondItem="jXj-pz-Brx" secondAttribute="trailing" id="kdC-Bn-SaL"/>
+                <constraint firstItem="aZr-XW-fae" firstAttribute="centerX" secondItem="9eL-Lg-9Ro" secondAttribute="centerX" id="l87-EX-dzc"/>
                 <constraint firstItem="c0c-JX-zQA" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" id="mYU-CT-UKv"/>
+                <constraint firstItem="gpp-64-Wi4" firstAttribute="width" secondItem="dVX-ty-uA4" secondAttribute="width" multiplier="6:10" id="oAp-2w-Cks"/>
                 <constraint firstItem="7fi-1s-J3q" firstAttribute="height" secondItem="FpC-FT-Pa3" secondAttribute="height" multiplier="1:3" id="pwo-nb-eri"/>
+                <constraint firstItem="qOg-s4-hVz" firstAttribute="centerX" secondItem="fOS-MI-asL" secondAttribute="centerX" id="qer-U9-Gmx"/>
                 <constraint firstItem="rSh-Wg-pi4" firstAttribute="leading" secondItem="FpC-FT-Pa3" secondAttribute="leading" id="rOm-9E-1dr"/>
                 <constraint firstItem="rSh-Wg-pi4" firstAttribute="width" secondItem="FpC-FT-Pa3" secondAttribute="width" multiplier="1:3" id="syb-1J-ddk"/>
+                <constraint firstItem="6qp-TN-uxM" firstAttribute="centerY" secondItem="6xe-R7-PqT" secondAttribute="centerY" id="tFO-fW-tE8"/>
+                <constraint firstItem="gpp-64-Wi4" firstAttribute="centerX" secondItem="dVX-ty-uA4" secondAttribute="centerX" id="umM-k1-cSf"/>
                 <constraint firstItem="UZP-UO-fs8" firstAttribute="centerX" secondItem="Snv-eD-fVw" secondAttribute="leading" id="vUF-3R-kM1"/>
                 <constraint firstItem="fZT-nY-bDU" firstAttribute="centerY" secondItem="Snv-eD-fVw" secondAttribute="bottom" id="w4B-8z-aIS"/>
+                <constraint firstItem="DNf-uk-18n" firstAttribute="height" secondItem="rSh-Wg-pi4" secondAttribute="height" multiplier="6:10" id="ytj-hf-uKn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-128" y="128"/>

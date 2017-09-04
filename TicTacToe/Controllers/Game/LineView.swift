@@ -13,8 +13,8 @@ class LineView: UIView {
     
     private let _animationFrequency: CGFloat = 0.05
     private var _lineLengthPercent : CGFloat = 0
-    private var _drawingTimer: Timer?
-    private var _drawingIncrementPercent: CGFloat = 0.1
+    var _drawingTimer: Timer?
+    var _drawingIncrementPercent: CGFloat = 0.1
     
     var lineLengthPercent: CGFloat {
         set (newLineLengthPercent){
@@ -32,12 +32,14 @@ class LineView: UIView {
         }
     }
     
-    func drawLine(withDuration: CGFloat = 1, delay: Double = 0.0) {
+    func drawLine(withDuration: CGFloat = 1,
+                  delay: Double = 0.0,
+                  sel: Selector = #selector(LineView.updateLine)) {
         setDrawingIncrement(withDuration: withDuration)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             self._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self._animationFrequency),
                                                       target: self,
-                                                      selector: #selector(self.updateLine),
+                                                      selector: sel,
                                                       userInfo: nil,
                                                       repeats: true)
         }
