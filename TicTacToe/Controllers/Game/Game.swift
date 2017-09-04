@@ -46,7 +46,7 @@ class Game: NSObject {
         WinCondition.rightDiagonal: [Location.topRight,
                                      Location.middleCenter,
                                      Location.bottomLeft],
-        WinCondition.horizontalTop: [Location.topRight,
+        WinCondition.horizontalTop: [Location.topLeft,
                                      Location.topCenter,
                                      Location.topRight],
         WinCondition.horizontalMiddle: [Location.middleLeft,
