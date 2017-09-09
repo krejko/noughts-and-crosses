@@ -33,7 +33,6 @@ enum WinCondition {
 
 class Game: NSObject {
     
-    
     private let players: [(type: PlayerType, piece: GamePiece)]
     private lazy var currentPlayerIndex = 0
     private lazy var boardLayout: [(location: Location, piece: GamePiece)] = []
@@ -90,9 +89,6 @@ class Game: NSObject {
             checkEndGameCondition()
             endTurn()
 
-            if currentPlayer().type == PlayerType.computer {
-                triggerComputerTurn()
-            }
         }
     }
     
@@ -136,15 +132,7 @@ class Game: NSObject {
         delegate?.didEndTurn()
     }
     
-    func triggerComputerTurn() {
-        if availableLocations().count > 0 {
-            let location = randomAvailableLocation()
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(0.5)) {
-                self.takeNextTurn(playerIndex: self.currentPlayerIndex,
-                                  selectedLocation: location)
-            }
-        }
-    }
+    
     
     // MARK: - Helper Functions
     

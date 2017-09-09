@@ -35,11 +35,22 @@ class GameViewController: UIViewController {
                                duration: 0.25,
                                delay: delay)
     }
+    
+    func triggerComputerTurn() {
+        if game.availableLocations().count > 0 {
+            let location = game.randomAvailableLocation()
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(0.5)) {
+                //TODO: put in actual player index
+                self.game.takeNextTurn(playerIndex: 1,
+                                  selectedLocation: location)
+            }
+        }
+    }
 }
 
 extension GameViewController: GameBoardViewDelegate {
     func didSelectCell(location: Location) {
-        // !!! put in actual player index
+        //TODO: put in actual player index
         game.takeNextTurn(playerIndex: 0, selectedLocation: location)
     }
 }
@@ -51,6 +62,11 @@ extension GameViewController: GameDelegate {
     
     func didEndTurn (){
         updateNextPieceView(delay: 0.25)
+        
+        if game.currentPlayer().type == PlayerType.computer {
+            triggerComputerTurn()
+        }
+
     }
     
     func didWinGame(player: (type: PlayerType, piece: GamePiece),
