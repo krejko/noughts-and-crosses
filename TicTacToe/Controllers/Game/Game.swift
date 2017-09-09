@@ -9,7 +9,8 @@
 import Foundation
 
 protocol GameDelegate: class {
-    func didFinishTurn(location: Location, piece: GamePiece)
+    func didRecordMove(location: Location, piece: GamePiece)
+    func didEndTurn()
     func didWinGame(player: (type: PlayerType, piece: GamePiece),
                     winConditions: Array<WinCondition>)
     func didEndGameWithDraw ()
@@ -86,10 +87,9 @@ class Game: NSObject {
         let success = recordSelectedLocation(selectedLocation: selectedLocation)
         
         if success {  // ensure valid, non-occupied location
-            delegate?.didFinishTurn(location: selectedLocation, piece: currentPlayer().piece)
             checkEndGameCondition()
             endTurn()
-            
+
             if currentPlayer().type == PlayerType.computer {
                 triggerComputerTurn()
             }
@@ -102,6 +102,7 @@ class Game: NSObject {
         }
         
         boardLayout.append((location: selectedLocation, currentPlayer().piece))
+        delegate?.didRecordMove(location: selectedLocation, piece: currentPlayer().piece)
         return true
     }
     
@@ -132,6 +133,7 @@ class Game: NSObject {
     
     func endTurn () {
         currentPlayerIndex = (currentPlayerIndex == 0) ? 1 : 0
+        delegate?.didEndTurn()
     }
     
     func triggerComputerTurn() {

@@ -53,6 +53,8 @@ class GameBoardView: UIView {
     func setup() {
         view = loadViewFromNib() 
         view.frame = bounds
+        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth,
+                                 UIViewAutoresizing.flexibleHeight]
         addSubview(view)
     }
     
@@ -88,16 +90,16 @@ class GameBoardView: UIView {
     // MARK: - Draw On Board
 
     func drawBoard(animated: Bool) {
-        let animationSpeed = CGFloat(0.15)
+        let animationSpeed = 0.15
         leftVerticalLine.drawLine(withDuration: animationSpeed)
-        rightVerticalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed))
-        topHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 2))
-        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 3))
+        rightVerticalLine.drawLine(withDuration: animationSpeed, delay: animationSpeed)
+        topHorizontalLine.drawLine(withDuration: animationSpeed, delay:(animationSpeed * 2))
+        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3))
     }
     
     func draw(piece: GamePiece, location: Location) {
         let pieceView = pieceLocationMap[location]
-        pieceView?.setPiece(piece: piece, duration: 0.2)
+        pieceView?.drawPiece(piece: piece, duration: 0.2)
     }
     
     // MARK: - Action Handling

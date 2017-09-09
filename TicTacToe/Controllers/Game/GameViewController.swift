@@ -12,6 +12,7 @@ class GameViewController: UIViewController {
    
     
     @IBOutlet weak var gameBoardView: GameBoardView!
+    @IBOutlet weak var nextPieceView: PieceView!
     var game: Game = Game()
     
     
@@ -19,19 +20,21 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameBoardView.delegate = self
+        nextPieceView.xStrokeWidth = Double(nextPieceView.frame.width) * 0.5
     }
     
     override func viewDidAppear(_ animated: Bool) {
         gameBoardView.drawBoard(animated: animated)
         game = Game()
         game.delegate = self
+        self .updateNextPieceView(delay: 0.75)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateNextPieceView (delay: Double = 0) {
+        nextPieceView.drawPiece(piece: game.currentPlayer().piece,
+                               duration: 0.25,
+                               delay: delay)
     }
-    
 }
 
 extension GameViewController: GameBoardViewDelegate {
@@ -42,9 +45,12 @@ extension GameViewController: GameBoardViewDelegate {
 }
 
 extension GameViewController: GameDelegate {
-    func didFinishTurn(location: Location, piece: GamePiece) {
+    func didRecordMove(location: Location, piece: GamePiece) {
         gameBoardView.draw(piece: piece, location: location)
-        // TODO: Update Next
+    }
+    
+    func didEndTurn (){
+        updateNextPieceView(delay: 0.25)
     }
     
     func didWinGame(player: (type: PlayerType, piece: GamePiece),
