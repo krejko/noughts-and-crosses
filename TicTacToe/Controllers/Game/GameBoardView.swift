@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol GameBoardViewDelegate: class {
-    func didSelectCell(cellLocation: CellLocation)
+    func didSelectCell(location: Location)
 }
 
 
@@ -24,8 +24,19 @@ class GameBoardView: UIView {
     @IBOutlet weak var topHorizontalLine: HorizontalLineView!
     @IBOutlet weak var bottomHorizontalLine: HorizontalLineView!
     
+    @IBOutlet weak var topLeftPiece: PieceView!
+    @IBOutlet weak var topCenterPiece: PieceView!
+    @IBOutlet weak var topRightPiece: PieceView!
+    @IBOutlet weak var middleLeftPiece: PieceView!
+    @IBOutlet weak var middleCenterPiece: PieceView!
+    @IBOutlet weak var middleRightPiece: PieceView!
+    @IBOutlet weak var bottomLeftPiece: PieceView!
+    @IBOutlet weak var bottomCenterPiece: PieceView!
+    @IBOutlet weak var bottomRightPiece: PieceView!
+    
     weak var delegate:GameBoardViewDelegate?
-
+    
+    private var _pieceLocationMap: Dictionary<Location, PieceView>?
 
     // MARK: - Initialization
     
@@ -42,6 +53,8 @@ class GameBoardView: UIView {
     func setup() {
         view = loadViewFromNib() 
         view.frame = bounds
+        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth,
+                                 UIViewAutoresizing.flexibleHeight]
         addSubview(view)
     }
     
@@ -51,21 +64,48 @@ class GameBoardView: UIView {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
+    
+    var pieceLocationMap: Dictionary<Location, PieceView> {
+        set (pieceLocationMap){}
+        get {
+            if _pieceLocationMap == nil {
+                _pieceLocationMap = [
+                    Location.topLeft: topLeftPiece,
+                    Location.topCenter: topCenterPiece,
+                    Location.topRight: topRightPiece,
+                    Location.middleLeft: middleLeftPiece,
+                    Location.middleCenter: middleCenterPiece,
+                    Location.middleRight: middleRightPiece,
+                    Location.bottomLeft: bottomLeftPiece,
+                    Location.bottomCenter: bottomCenterPiece,
+                    Location.bottomRight: bottomRightPiece
+                ]
 
-    // MARK: - Board Setup
+            }
+            return _pieceLocationMap!
+        }
+    }
+    
+
+    // MARK: - Draw On Board
 
     func drawBoard(animated: Bool) {
-        let animationSpeed = CGFloat(0.15)
+        let animationSpeed = 0.15
         leftVerticalLine.drawLine(withDuration: animationSpeed)
-        rightVerticalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed))
-        topHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 2))
-        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: Double(animationSpeed * 3))
+        rightVerticalLine.drawLine(withDuration: animationSpeed, delay: animationSpeed)
+        topHorizontalLine.drawLine(withDuration: animationSpeed, delay:(animationSpeed * 2))
+        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3))
+    }
+    
+    func draw(piece: GamePiece, location: Location) {
+        let pieceView = pieceLocationMap[location]
+        pieceView?.drawPiece(piece: piece, duration: 0.2)
     }
     
     // MARK: - Action Handling
     
     @IBAction func cellSelected(_ sender: UIButton) {
-        let location = CellLocation(rawValue: sender.tag)
-        delegate?.didSelectCell(cellLocation: location!)
+        let location = Location(rawValue: sender.tag)
+        delegate?.didSelectCell(location: location!)
     }
 }

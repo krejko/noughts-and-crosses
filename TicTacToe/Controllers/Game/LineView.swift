@@ -11,12 +11,14 @@ import UIKit
 
 class LineView: UIView {
     
-    private let _animationFrequency: CGFloat = 0.05
-    private var _lineLengthPercent : CGFloat = 0
-    private var _drawingTimer: Timer?
-    private var _drawingIncrementPercent: CGFloat = 0.1
+    //MARK: - Properties
     
-    var lineLengthPercent: CGFloat {
+    let animationFrequency: Double = 0.01
+    private var _lineLengthPercent : Double = 0
+    private var _drawingTimer: Timer?
+    var drawingIncrementPercent: Double = 0.0
+    
+    var lineLengthPercent: Double {
         set (newLineLengthPercent){
             if newLineLengthPercent > 1.0 {
                 _lineLengthPercent = 1.0
@@ -32,45 +34,58 @@ class LineView: UIView {
         }
     }
     
-    func drawLine(withDuration: CGFloat = 1, delay: Double = 0.0) {
-        setDrawingIncrement(withDuration: withDuration)
+    //MARK: - Drawing
+    
+    func resetDrawing() {
+        _lineLengthPercent = 0
+        setNeedsDisplay()
+    }
+    
+    func drawLine(withDuration: Double = 1,
+                  delay: Double = 0.0) {
+        resetDrawing()
+        drawingIncrementPercent = calculateDrawingIncrementPercent(withDuration: withDuration, frequency: animationFrequency)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            self._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self._animationFrequency),
+            self._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.animationFrequency),
                                                       target: self,
-                                                      selector: #selector(self.updateLine),
+                                                      selector: #selector(LineView.updateLine),
                                                       userInfo: nil,
                                                       repeats: true)
         }
     }
     
-    func setDrawingIncrement(withDuration: CGFloat) {
-        if (withDuration <= 0) {
-            _drawingIncrementPercent = CGFloat(1.0)
-        } else {
-            _drawingIncrementPercent = (_animationFrequency / withDuration)
-        }
-    }
-    
     func updateLine()  {
-        lineLengthPercent += _drawingIncrementPercent
-
+        lineLengthPercent += drawingIncrementPercent
+        
         if lineLengthPercent >= 1.0 {
             _drawingTimer!.invalidate()
             _drawingTimer = nil
         }
     }
+    
+    //MARK: - Calculations
+  
+    func calculateDrawingIncrementPercent(withDuration: Double, frequency: Double = 0.05) -> Double {
+        if (withDuration <= 0) {
+            return 1.0
+        } else {
+            return (animationFrequency / withDuration)
+        }
+    }
+
 }
+
+//MARK: - Subclasses
 
 class VerticalLineView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawVertical_line(vertical_line_length: lineLengthPercent, vertical_line_frame: rect)
+        Drawer.drawVerticalLine(verticalLinePercent: CGFloat(lineLengthPercent), verticalLineFrame: rect)
     }
 }
 
 class HorizontalLineView: LineView {
-    
     override func draw(_ rect: CGRect) {
-        Drawer.drawHorizontal_line(horizontal_line_length: lineLengthPercent, horizontal_line_frame: rect)
+        Drawer.drawHorizontalLine(horizontalLinePercent: CGFloat(lineLengthPercent), horizontalLineFrame: rect)
     }
 }
 

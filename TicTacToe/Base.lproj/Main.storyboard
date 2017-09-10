@@ -99,23 +99,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVl-ZI-YhU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="next" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7V-AG-Kpn">
+                                <rect key="frame" x="190" y="95" width="33" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="R6x-3f-hRc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVl-ZI-YhU" userLabel="Next Piece Container">
                                 <rect key="frame" x="182" y="-20" width="50" height="110"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hxm-Sk-Pz6">
-                                        <rect key="frame" x="8" y="64" width="34" height="34"/>
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znc-Ii-tD1" userLabel="Next Piece View" customClass="PieceView" customModule="TicTacToe" customModuleProvider="target">
+                                        <rect key="frame" x="9" y="66" width="32" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Hxm-Sk-Pz6" secondAttribute="height" multiplier="1:1" id="0Cs-Iu-TSW"/>
-                                            <constraint firstAttribute="width" constant="34" id="jz8-xw-N05"/>
+                                            <constraint firstAttribute="width" constant="32" id="cKL-pC-gOF"/>
+                                            <constraint firstAttribute="width" secondItem="znc-Ii-tD1" secondAttribute="height" multiplier="1:1" id="hQl-7B-rvg"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85490196078431369" green="0.85882352941176465" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="znc-Ii-tD1" secondAttribute="bottom" constant="12" id="T4W-Vt-Z5t"/>
                                     <constraint firstAttribute="height" constant="110" id="aZB-2T-QSF"/>
-                                    <constraint firstItem="Hxm-Sk-Pz6" firstAttribute="centerX" secondItem="MVl-ZI-YhU" secondAttribute="centerX" id="fdP-vf-V6W"/>
                                     <constraint firstAttribute="width" constant="50" id="r1x-nh-2Xb"/>
-                                    <constraint firstAttribute="bottom" secondItem="Hxm-Sk-Pz6" secondAttribute="bottom" constant="12" id="vP3-Yt-0gd"/>
+                                    <constraint firstItem="znc-Ii-tD1" firstAttribute="centerX" secondItem="MVl-ZI-YhU" secondAttribute="centerX" id="sbd-ZA-Asx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -132,15 +141,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibp-Zi-6Mr" userLabel="left container">
                                 <rect key="frame" x="0.0" y="0.0" width="182" height="90"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffm-hJ-xOj">
-                                        <rect key="frame" x="54" y="25" width="75" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWr-sO-ZbP">
+                                        <rect key="frame" x="69" y="70" width="43" height="20"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffm-hJ-xOj">
+                                        <rect key="frame" x="53.666666666666657" y="25" width="75" height="40"/>
                                         <color key="backgroundColor" red="0.57647058819999997" green="0.67843137249999996" blue="0.63921568630000003" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="Zvg-Mj-MnJ"/>
                                             <constraint firstAttribute="height" constant="40" id="gdD-us-0ta"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                        <state key="normal">
+                                        <state key="normal" image="menu">
                                             <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -155,12 +170,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWr-sO-ZbP">
-                                        <rect key="frame" x="70" y="70" width="43" height="20"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
-                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ffm-hJ-xOj" firstAttribute="centerY" secondItem="ibp-Zi-6Mr" secondAttribute="centerY" id="2I6-XD-1EX"/>
@@ -177,14 +186,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-rv-ApP" userLabel="left container">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-rv-ApP" userLabel="right container">
                                 <rect key="frame" x="232" y="0.0" width="182" height="90"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxK-Oe-EWG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYj-M5-ncD">
+                                        <rect key="frame" x="65" y="70" width="53" height="20"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxK-Oe-EWG">
                                         <rect key="frame" x="54" y="25" width="75" height="40"/>
                                         <color key="backgroundColor" red="0.57647058819999997" green="0.67843137249999996" blue="0.63921568630000003" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                        <state key="normal">
+                                        <state key="normal" image="restart">
                                             <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -199,12 +214,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYj-M5-ncD">
-                                        <rect key="frame" x="65" y="70" width="53" height="20"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
-                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pYj-M5-ncD" firstAttribute="centerX" secondItem="QxK-Oe-EWG" secondAttribute="centerX" id="8Pk-tK-Ldw"/>
@@ -221,17 +230,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="next" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7V-AG-Kpn">
-                                <rect key="frame" x="190.66666666666666" y="95" width="33" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="R6x-3f-hRc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mf0-3G-mFX" userLabel="game board" customClass="GameBoardView" customModule="TicTacToe" customModuleProvider="target">
-                                <rect key="frame" x="54" y="215" width="306" height="306"/>
+                                <rect key="frame" x="53.666666666666657" y="214.66666666666669" width="307.33333333333337" height="307.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mf0-3G-mFX" secondAttribute="height" id="nuS-bW-DOm"/>
                                 </constraints>
@@ -265,6 +265,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="gameBoardView" destination="mf0-3G-mFX" id="uym-nB-tbY"/>
+                        <outlet property="nextPieceView" destination="znc-Ii-tD1" id="M6t-JK-Ofc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1J-6M-pJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -290,4 +291,8 @@
             <point key="canvasLocation" x="957" y="873"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="150" height="80"/>
+        <image name="restart" width="37" height="44"/>
+    </resources>
 </document>
