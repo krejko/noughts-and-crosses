@@ -34,6 +34,8 @@ class GameBoardView: UIView {
     @IBOutlet weak var bottomCenterPiece: PieceView!
     @IBOutlet weak var bottomRightPiece: PieceView!
     
+    @IBOutlet weak var eraseView: EraseView!
+    
     weak var delegate:GameBoardViewDelegate?
     
     private var _pieceLocationMap: Dictionary<Location, PieceView>?
@@ -89,7 +91,7 @@ class GameBoardView: UIView {
 
     // MARK: - Draw On Board
 
-    func drawBoard(animated: Bool) {
+    func drawBoard() {
         let animationSpeed = 0.15
         leftVerticalLine.drawLine(withDuration: animationSpeed)
         rightVerticalLine.drawLine(withDuration: animationSpeed, delay: animationSpeed)
@@ -100,6 +102,11 @@ class GameBoardView: UIView {
     func draw(piece: GamePiece, location: Location) {
         let pieceView = pieceLocationMap[location]
         pieceView?.drawPiece(piece: piece, duration: 0.2)
+    }
+    
+    func resetGameBoard() {
+        eraseView.drawLine(withDuration: 0.75)
+
     }
     
     // MARK: - Action Handling

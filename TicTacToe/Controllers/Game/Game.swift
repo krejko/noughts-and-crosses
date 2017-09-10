@@ -83,12 +83,12 @@ class Game: NSObject {
             return
         }
         
+        // ensure valid, non-occupied location
         let success = recordSelectedLocation(selectedLocation: selectedLocation)
-        
-        if success {  // ensure valid, non-occupied location
+    
+        if success {
             checkEndGameCondition()
             endTurn()
-
         }
     }
     

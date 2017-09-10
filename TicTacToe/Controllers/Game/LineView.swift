@@ -46,6 +46,7 @@ class LineView: UIView {
         resetDrawing()
         drawingIncrementPercent = calculateDrawingIncrementPercent(withDuration: withDuration, frequency: animationFrequency)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.invalidateTimer()
             self._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.animationFrequency),
                                                       target: self,
                                                       selector: #selector(LineView.updateLine),
@@ -58,6 +59,12 @@ class LineView: UIView {
         lineLengthPercent += drawingIncrementPercent
         
         if lineLengthPercent >= 1.0 {
+            invalidateTimer()
+        }
+    }
+    
+    func invalidateTimer() {
+        if _drawingTimer != nil {
             _drawingTimer!.invalidate()
             _drawingTimer = nil
         }
@@ -86,6 +93,14 @@ class VerticalLineView: LineView {
 class HorizontalLineView: LineView {
     override func draw(_ rect: CGRect) {
         Drawer.drawHorizontalLine(horizontalLinePercent: CGFloat(lineLengthPercent), horizontalLineFrame: rect)
+    }
+}
+
+class EraseView: LineView {
+    override func draw(_ rect: CGRect) {
+        Drawer.drawErase(backgroundColor: UIColor.init(hex: 0xF2F2F4),
+                         erasePercent: CGFloat(lineLengthPercent),
+                         eraseFrame: rect)
     }
 }
 

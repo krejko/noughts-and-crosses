@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        gameBoardView.drawBoard(animated: animated)
+        gameBoardView.drawBoard()
         game = Game()
         game.delegate = self
         self .updateNextPieceView(delay: 0.75)
@@ -45,6 +45,10 @@ class GameViewController: UIViewController {
                                   selectedLocation: location)
             }
         }
+    }
+    
+    @IBAction func restartButtonPressed(_ sender: Any) {
+        gameBoardView.resetGameBoard()
     }
 }
 

@@ -12,6 +12,7 @@
 		AA0870DD1F5DC149001765B8 /* PieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0870DC1F5DC149001765B8 /* PieceView.swift */; };
 		AA0870DF1F5DC1F6001765B8 /* GamePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0870DE1F5DC1F6001765B8 /* GamePiece.swift */; };
 		AA1A3F1B1F642A5E009A124D /* LineViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A3F1A1F642A5E009A124D /* LineViewTests.swift */; };
+		AA1A3F1D1F658309009A124D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A3F1C1F658309009A124D /* UIColor+Hex.swift */; };
 		AA5021271F58F67C00DEE2BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021261F58F67C00DEE2BC /* AppDelegate.swift */; };
 		AA50212C1F58F67C00DEE2BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA50212A1F58F67C00DEE2BC /* Main.storyboard */; };
 		AA5021311F58F67C00DEE2BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA50212F1F58F67C00DEE2BC /* LaunchScreen.storyboard */; };
@@ -21,7 +22,7 @@
 		AA50216B1F5D8D2E00DEE2BC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021601F5D8D2E00DEE2BC /* GameViewController.swift */; };
 		AA50216C1F5D8D2E00DEE2BC /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021611F5D8D2E00DEE2BC /* LineView.swift */; };
 		AA50216D1F5D8D2E00DEE2BC /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021631F5D8D2E00DEE2BC /* MainMenuViewController.swift */; };
-		AA50216E1F5D8D2E00DEE2BC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021661F5D8D2E00DEE2BC /* UIView.swift */; };
+		AA50216E1F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021661F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift */; };
 		AA5021721F5D8DB500DEE2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5021701F5D8DB500DEE2BC /* Assets.xcassets */; };
 		AA5021731F5D8DB500DEE2BC /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021711F5D8DB500DEE2BC /* Drawer.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		AA0870DC1F5DC149001765B8 /* PieceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceView.swift; sourceTree = "<group>"; };
 		AA0870DE1F5DC1F6001765B8 /* GamePiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePiece.swift; sourceTree = "<group>"; };
 		AA1A3F1A1F642A5E009A124D /* LineViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineViewTests.swift; sourceTree = "<group>"; };
+		AA1A3F1C1F658309009A124D /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		AA5021231F58F67C00DEE2BC /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA5021261F58F67C00DEE2BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA50212B1F58F67C00DEE2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		AA5021601F5D8D2E00DEE2BC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		AA5021611F5D8D2E00DEE2BC /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		AA5021631F5D8D2E00DEE2BC /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
-		AA5021661F5D8D2E00DEE2BC /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		AA5021661F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+DesignableLayers.swift"; sourceTree = "<group>"; };
 		AA5021701F5D8DB500DEE2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA5021711F5D8DB500DEE2BC /* Drawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +163,8 @@
 		AA5021651F5D8D2E00DEE2BC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AA5021661F5D8D2E00DEE2BC /* UIView.swift */,
+				AA5021661F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift */,
+				AA1A3F1C1F658309009A124D /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA50216E1F5D8D2E00DEE2BC /* UIView.swift in Sources */,
+				AA50216E1F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift in Sources */,
 				AA0870D91F5D9EDB001765B8 /* Game.swift in Sources */,
 				AA50216B1F5D8D2E00DEE2BC /* GameViewController.swift in Sources */,
 				AA50216C1F5D8D2E00DEE2BC /* LineView.swift in Sources */,
@@ -292,6 +295,7 @@
 				AA5021731F5D8DB500DEE2BC /* Drawer.swift in Sources */,
 				AA5021691F5D8D2E00DEE2BC /* GameBoardView.swift in Sources */,
 				AA0870D71F5D92B0001765B8 /* CellLocation.swift in Sources */,
+				AA1A3F1D1F658309009A124D /* UIColor+Hex.swift in Sources */,
 				AA5021271F58F67C00DEE2BC /* AppDelegate.swift in Sources */,
 				AA0870DF1F5DC1F6001765B8 /* GamePiece.swift in Sources */,
 			);

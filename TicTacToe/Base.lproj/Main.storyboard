@@ -213,6 +213,9 @@
                                                 <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="restartButtonPressed:" destination="Pet-2j-uXF" eventType="touchUpInside" id="VRq-Qm-2tr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
