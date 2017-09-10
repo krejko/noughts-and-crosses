@@ -128,7 +128,7 @@
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZT-nY-bDU" userLabel="bottom horizontal" customClass="HorizontalLineView" customModule="TicTacToe" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="240.5" width="375" height="19"/>
                 </view>
-                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlb-VE-T2W" customClass="EraseView" customModule="TicTacToe" customModuleProvider="target">
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlb-VE-T2W" customClass="EraseView" customModule="TicTacToe" customModuleProvider="target">
                     <rect key="frame" x="-37.5" y="-37.5" width="450" height="450"/>
                 </view>
             </subviews>

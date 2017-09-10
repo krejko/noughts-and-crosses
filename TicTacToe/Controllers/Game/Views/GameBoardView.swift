@@ -98,10 +98,11 @@ class GameBoardView: UIView {
         leftVerticalLine.drawLine(withDuration: animationSpeed)
         rightVerticalLine.drawLine(withDuration: animationSpeed, delay: animationSpeed)
         topHorizontalLine.drawLine(withDuration: animationSpeed, delay:(animationSpeed * 2))
-        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3))
-        
-        delegate?.didDrawBoard()
-
+        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3)) { [weak self] () in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.delegate?.didDrawBoard()
+        }
     }
     
     func draw(piece: GamePiece, location: Location) {
@@ -110,8 +111,31 @@ class GameBoardView: UIView {
     }
     
     func eraseGameBoard() {
-        eraseView.drawLine(withDuration: 0.75)
-        delegate?.didEraseBoard()
+        eraseView.drawLine(withDuration: 0.75) { [weak self] () in
+            guard let strongSelf = self else { return }
+            
+            // reset lines
+            strongSelf.leftVerticalLine.resetDrawing()
+            strongSelf.rightVerticalLine.resetDrawing()
+            strongSelf.topHorizontalLine.resetDrawing()
+            strongSelf.bottomHorizontalLine.resetDrawing()
+            
+            // reset game pieces
+            strongSelf.topLeftPiece.resetDrawing()
+            strongSelf.topCenterPiece.resetDrawing()
+            strongSelf.topRightPiece.resetDrawing()
+            strongSelf.middleLeftPiece.resetDrawing()
+            strongSelf.middleCenterPiece.resetDrawing()
+            strongSelf.middleRightPiece.resetDrawing()
+            strongSelf.bottomLeftPiece.resetDrawing()
+            strongSelf.bottomCenterPiece.resetDrawing()
+            strongSelf.bottomRightPiece.resetDrawing()
+            
+            // reset erase view
+            strongSelf.eraseView.resetDrawing()
+            
+            strongSelf.delegate?.didEraseBoard()
+        }
     }
     
     // MARK: - Action Handling

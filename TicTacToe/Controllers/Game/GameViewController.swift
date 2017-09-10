@@ -25,8 +25,6 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         gameBoardView.drawBoard()
-        game = Game()
-        game.delegate = self
         self .updateNextPieceView(delay: 0.75)
     }
     
@@ -54,7 +52,8 @@ class GameViewController: UIViewController {
 
 extension GameViewController: GameBoardViewDelegate {
     func didDrawBoard() {
-        
+        game = Game()
+        game.delegate = self
     }
     
     func didSelectCell(location: Location) {
@@ -63,7 +62,7 @@ extension GameViewController: GameBoardViewDelegate {
     }
     
     func didEraseBoard() {
-        
+        gameBoardView.drawBoard()
     }
 }
 
