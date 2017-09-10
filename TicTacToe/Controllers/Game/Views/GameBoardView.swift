@@ -10,7 +10,9 @@ import UIKit
 
 
 protocol GameBoardViewDelegate: class {
+    func didDrawBoard()
     func didSelectCell(location: Location)
+    func didEraseBoard()
 }
 
 
@@ -97,6 +99,9 @@ class GameBoardView: UIView {
         rightVerticalLine.drawLine(withDuration: animationSpeed, delay: animationSpeed)
         topHorizontalLine.drawLine(withDuration: animationSpeed, delay:(animationSpeed * 2))
         bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3))
+        
+        delegate?.didDrawBoard()
+
     }
     
     func draw(piece: GamePiece, location: Location) {
@@ -104,9 +109,9 @@ class GameBoardView: UIView {
         pieceView?.drawPiece(piece: piece, duration: 0.2)
     }
     
-    func resetGameBoard() {
+    func eraseGameBoard() {
         eraseView.drawLine(withDuration: 0.75)
-
+        delegate?.didEraseBoard()
     }
     
     // MARK: - Action Handling

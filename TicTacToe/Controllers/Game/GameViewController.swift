@@ -48,14 +48,22 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartButtonPressed(_ sender: Any) {
-        gameBoardView.resetGameBoard()
+        gameBoardView.eraseGameBoard()
     }
 }
 
 extension GameViewController: GameBoardViewDelegate {
+    func didDrawBoard() {
+        
+    }
+    
     func didSelectCell(location: Location) {
         //TODO: put in actual player index
         game.takeNextTurn(playerIndex: 0, selectedLocation: location)
+    }
+    
+    func didEraseBoard() {
+        
     }
 }
 
