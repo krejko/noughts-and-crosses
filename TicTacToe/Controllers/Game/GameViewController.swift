@@ -26,7 +26,6 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         gameBoardView.drawBoard()
-        self .updateNextPieceView(delay: 0.75)
     }
     
     func updateNextPieceView (delay: Double = 0) {
@@ -48,6 +47,7 @@ class GameViewController: UIViewController {
     
     @IBAction func restartButtonPressed(_ sender: Any) {
         gameStatusLabel.text = ""
+        nextPieceView.resetDrawing()
         gameBoardView.eraseGameBoard()
     }
     
@@ -57,6 +57,7 @@ extension GameViewController: GameBoardViewDelegate {
     func didDrawBoard() {
         game = Game()
         game.delegate = self
+        updateNextPieceView(delay: 0.25)
     }
     
     func didSelectCell(location: Location) {
@@ -84,6 +85,7 @@ extension GameViewController: GameDelegate {
     
     func didWinGame(player: (type: PlayerType, piece: GamePiece),
                     winConditions: Array<WinCondition>) {
+        nextPieceView.resetDrawing()
         gameStatusLabel.text = "\(player.piece) is the winner"
         gameBoardView.draw(winConditions: winConditions,
                            color:UIColor.Palatte.DarkGray)

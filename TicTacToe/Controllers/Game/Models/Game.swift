@@ -89,7 +89,9 @@ class Game: NSObject {
     
         if success {
             checkEndGameCondition()
-            endTurn()
+            if !gameOver{
+                endTurn()
+            }
         }
     }
     
