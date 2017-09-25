@@ -36,6 +36,7 @@ class Game: NSObject {
     private let players: [(type: PlayerType, piece: GamePiece)]
     private lazy var currentPlayerIndex = 0
     private lazy var boardLayout: [(location: Location, piece: GamePiece)] = []
+    var gameOver = false
     
     weak var delegate:GameDelegate?
     
@@ -79,7 +80,7 @@ class Game: NSObject {
     // MARK: - Turn Phases
     
     func takeNextTurn(playerIndex: Int, selectedLocation: Location) {
-        if playerIndex != currentPlayerIndex { // ensure play is in order
+        if gameOver || playerIndex != currentPlayerIndex { // ensure game has not ended and play is in order
             return
         }
         
@@ -107,8 +108,10 @@ class Game: NSObject {
         let winConditions = self.winConditions(piece: currentPlayer().piece)
         if winConditions != nil && (winConditions?.count)! > 0 {
             delegate?.didWinGame(player: currentPlayer(), winConditions: winConditions!)
+            gameOver = true
         } else if availableLocations().count <= 0 {
             delegate?.didEndGameWithDraw()
+            gameOver = true
         }
     }
     
