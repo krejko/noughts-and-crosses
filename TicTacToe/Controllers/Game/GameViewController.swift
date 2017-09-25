@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gameBoardView: GameBoardView!
     @IBOutlet weak var nextPieceView: PieceView!
+    @IBOutlet weak var gameStatusLabel: UILabel!
     var game: Game = Game()
     
     
@@ -46,8 +47,10 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartButtonPressed(_ sender: Any) {
+        gameStatusLabel.text = ""
         gameBoardView.eraseGameBoard()
     }
+    
 }
 
 extension GameViewController: GameBoardViewDelegate {
@@ -77,19 +80,17 @@ extension GameViewController: GameDelegate {
         if game.currentPlayer().type == PlayerType.computer {
             triggerComputerTurn()
         }
-
     }
     
     func didWinGame(player: (type: PlayerType, piece: GamePiece),
                     winConditions: Array<WinCondition>) {
-        print("\(player.piece) is the winner with ")
-        dump(winConditions)
+        gameStatusLabel.text = "\(player.piece) is the winner"
         gameBoardView.draw(winConditions: winConditions,
                            color:UIColor.Palatte.DarkGray)
     }
     
     func didEndGameWithDraw () {
-        print("Game ends in draw")
+        gameStatusLabel.text = "draw"
     }
 
 }
