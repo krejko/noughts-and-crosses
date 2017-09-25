@@ -77,6 +77,7 @@ class GameBoardView: UIView {
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth,
                                  UIViewAutoresizing.flexibleHeight]
         addSubview(view)
+        self.eraseView.color = UIColor.Theme.lightTheme().backgroundColor
     }
     
     func loadViewFromNib() -> UIView! {
