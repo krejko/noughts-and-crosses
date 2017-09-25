@@ -73,20 +73,21 @@ class PieceView : LineView {
     func drawRightLine(withDuration: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now()) {[weak self] () in
             guard let strongSelf = self else { return }
-            strongSelf._rightDrawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(strongSelf.animationFrequency),
-                                                                 target: strongSelf,
-                                                                 selector: #selector(PieceView.updateRightLine),
-                                                                 userInfo: nil,
-                                                                 repeats: true)
+            strongSelf._rightDrawingTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(strongSelf.animationFrequency),
+                                                                 repeats: true,
+                                                                 block: strongSelf.updateRightLineAction())
         }
     }
     
-    func updateRightLine()  {
-        rightLineLengthPercent += drawingIncrementPercent
-        
-        if rightLineLengthPercent >= 1.0 {
-            invalidateRightTimer()
+    func updateRightLineAction() -> ((Timer) -> Void)  {
+        func action(timer: Timer) {
+            rightLineLengthPercent += drawingIncrementPercent
+
+            if rightLineLengthPercent >= 1.0 {
+                invalidateRightTimer()
+            }
         }
+        return action
     }
     
     func invalidateRightTimer() {
@@ -96,12 +97,15 @@ class PieceView : LineView {
         }
     }
     
-    override func updateLine()  {
-        super.updateLine()
-        // When the first half of the x finishes drawing, draw second half
-        if lineLengthPercent >= 1.0 && piece == GamePiece.x {
-            drawRightLine(withDuration: _halfDuration)
+    override func updateLineAction() -> ((Timer) -> Void)  {
+        func action(timer: Timer) {
+            super.updateLineAction()(timer)
+            // When the first half of the x finishes drawing, draw second half
+            if lineLengthPercent >= 1.0 && piece == GamePiece.x {
+                drawRightLine(withDuration: _halfDuration)
+            }
         }
+        return action
     }
     
     override func draw(_ rect: CGRect) {

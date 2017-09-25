@@ -54,21 +54,22 @@ class LineView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] () in
             guard let strongSelf = self else { return }
             strongSelf.invalidateTimer()
-            strongSelf._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(strongSelf.animationFrequency),
-                                                            target: strongSelf,
-                                                            selector: #selector(LineView.updateLine),
-                                                            userInfo: nil,
-                                                            repeats: true)
+            strongSelf._drawingTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(strongSelf.animationFrequency),
+                                                            repeats: true,
+                                                            block: strongSelf.updateLineAction())
         }
     }
     
-    func updateLine()  {
-        lineLengthPercent += drawingIncrementPercent
-        
-        if lineLengthPercent >= 1.0 {
-            invalidateTimer()
-            invokeAnimationCompletion()
+    func updateLineAction() -> ((Timer) -> Void) {
+        func action(timer: Timer) {
+            lineLengthPercent += drawingIncrementPercent
+            
+            if lineLengthPercent >= 1.0 {
+                invalidateTimer()
+                invokeAnimationCompletion()
+            }
         }
+        return action
     }
     
     func invalidateTimer() {
