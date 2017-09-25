@@ -84,6 +84,8 @@ extension GameViewController: GameDelegate {
                     winConditions: Array<WinCondition>) {
         print("\(player.piece) is the winner with ")
         dump(winConditions)
+        gameBoardView.draw(winConditions: winConditions,
+                           color:UIColor.Palatte.DarkGray)
     }
     
     func didEndGameWithDraw () {

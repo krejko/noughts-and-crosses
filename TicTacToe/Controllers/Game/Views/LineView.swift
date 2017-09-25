@@ -20,6 +20,7 @@ class LineView: UIView {
     private var _drawingTimer: Timer?
     var drawingIncrementPercent: Double = 0.0
     var animationCompletion: AnimationCompletion?
+    var color: UIColor? = UIColor.Palatte.DarkGray
     
     
     var lineLengthPercent: Double {
@@ -113,9 +114,17 @@ class HorizontalLineView: LineView {
 
 class EraseView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawErase(backgroundColor: UIColor.init(hex: 0xF2F2F4),
+        Drawer.drawErase(backgroundColor: color!,
                          erasePercent: CGFloat(lineLengthPercent),
                          eraseFrame: rect)
     }
+}
+
+class leftDiagonalLine: LineView {
+    
+}
+
+class rightDiagonalLine: LineView {
+    
 }
 

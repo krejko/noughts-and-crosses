@@ -25,6 +25,7 @@
 		AA50216E1F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021661F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift */; };
 		AA5021721F5D8DB500DEE2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5021701F5D8DB500DEE2BC /* Assets.xcassets */; };
 		AA5021731F5D8DB500DEE2BC /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5021711F5D8DB500DEE2BC /* Drawer.swift */; };
+		AA6CD0F11F7964CF00D22FA3 /* UIColor+Palatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CD0F01F7964CF00D22FA3 /* UIColor+Palatte.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		AA5021661F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+DesignableLayers.swift"; sourceTree = "<group>"; };
 		AA5021701F5D8DB500DEE2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA5021711F5D8DB500DEE2BC /* Drawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
+		AA6CD0F01F7964CF00D22FA3 /* UIColor+Palatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palatte.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				AA5021661F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift */,
 				AA1A3F1C1F658309009A124D /* UIColor+Hex.swift */,
+				AA6CD0F01F7964CF00D22FA3 /* UIColor+Palatte.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA50216E1F5D8D2E00DEE2BC /* UIView+DesignableLayers.swift in Sources */,
+				AA6CD0F11F7964CF00D22FA3 /* UIColor+Palatte.swift in Sources */,
 				AA50216B1F5D8D2E00DEE2BC /* GameViewController.swift in Sources */,
 				AA50216D1F5D8D2E00DEE2BC /* MainMenuViewController.swift in Sources */,
 				AA5021731F5D8DB500DEE2BC /* Drawer.swift in Sources */,
