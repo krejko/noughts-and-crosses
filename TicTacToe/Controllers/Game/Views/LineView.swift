@@ -121,10 +121,25 @@ class EraseView: LineView {
 }
 
 class leftDiagonalLine: LineView {
-    
+    override func draw(_ rect: CGRect) {
+        Drawer.drawX(rect: rect,
+                     leftLinePercent: CGFloat(lineLengthPercent),
+                     showLeftLine: (lineLengthPercent > 0.1),
+                     rightLinePercent: 0.0,
+                     showRightLine: false,
+                     xStrokeWidth: 3)
+    }
 }
 
 class rightDiagonalLine: LineView {
-    
+    override func draw(_ rect: CGRect) {
+        Drawer.drawX(rect: rect,
+                     leftLinePercent: 0.0,
+                     showLeftLine: false,
+                     rightLinePercent: CGFloat(lineLengthPercent),
+                     showRightLine: (lineLengthPercent > 0.1),
+                     xStrokeWidth: 3)
+    }
+
 }
 
