@@ -20,6 +20,7 @@ class LineView: UIView {
     private var _drawingTimer: Timer?
     var drawingIncrementPercent: Double = 0.0
     var animationCompletion: AnimationCompletion?
+    var color: UIColor? = UIColor.Palatte.LightGreen
     
     
     var lineLengthPercent: Double {
@@ -101,21 +102,52 @@ class LineView: UIView {
 
 class VerticalLineView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawVerticalLine(verticalLinePercent: CGFloat(lineLengthPercent), verticalLineFrame: rect)
+        Drawer.drawVerticalLine(lightGreen: color!,
+                                verticalLinePercent: CGFloat(lineLengthPercent),
+                                verticalLineFrame: rect)
     }
 }
 
 class HorizontalLineView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawHorizontalLine(horizontalLinePercent: CGFloat(lineLengthPercent), horizontalLineFrame: rect)
+        Drawer.drawHorizontalLine(lightGreen: color!,
+                                  horizontalLinePercent: CGFloat(lineLengthPercent),
+                                  horizontalLineFrame: rect)
     }
 }
 
 class EraseView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawErase(backgroundColor: UIColor.init(hex: 0xF2F2F4),
+        Drawer.drawErase(backgroundColor: color!,
                          erasePercent: CGFloat(lineLengthPercent),
                          eraseFrame: rect)
     }
+}
+
+class leftDiagonalLine: LineView {
+    override func draw(_ rect: CGRect) {
+        Drawer.drawX(lightGreen: color!,
+                     darkGreen: color!,
+                     rect: rect,
+                     leftLinePercent: CGFloat(lineLengthPercent),
+                     showLeftLine: (lineLengthPercent > 0.1),
+                     rightLinePercent: 0.0,
+                     showRightLine: false,
+                     xStrokeWidth: 3)
+    }
+}
+
+class rightDiagonalLine: LineView {
+    override func draw(_ rect: CGRect) {
+        Drawer.drawX(lightGreen: color!,
+                     darkGreen: color!,
+                     rect: rect,
+                     leftLinePercent: 0.0,
+                     showLeftLine: false,
+                     rightLinePercent: CGFloat(lineLengthPercent),
+                     showRightLine: (lineLengthPercent > 0.1),
+                     xStrokeWidth: 3)
+    }
+
 }
 

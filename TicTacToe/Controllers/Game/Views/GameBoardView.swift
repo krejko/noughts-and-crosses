@@ -21,11 +21,12 @@ class GameBoardView: UIView {
 
     
     @IBOutlet var view: UIView!
+    //Lines
     @IBOutlet weak var leftVerticalLine: VerticalLineView!
     @IBOutlet weak var rightVerticalLine: VerticalLineView!
     @IBOutlet weak var topHorizontalLine: HorizontalLineView!
     @IBOutlet weak var bottomHorizontalLine: HorizontalLineView!
-    
+    //Pieces
     @IBOutlet weak var topLeftPiece: PieceView!
     @IBOutlet weak var topCenterPiece: PieceView!
     @IBOutlet weak var topRightPiece: PieceView!
@@ -35,13 +36,29 @@ class GameBoardView: UIView {
     @IBOutlet weak var bottomLeftPiece: PieceView!
     @IBOutlet weak var bottomCenterPiece: PieceView!
     @IBOutlet weak var bottomRightPiece: PieceView!
-    
+    //Win Views
+    @IBOutlet weak var leftDiagonalWinLine: leftDiagonalLine!
+    @IBOutlet weak var rightDiagonalWinLine: rightDiagonalLine!
+    @IBOutlet weak var leftVerticalWinLine: VerticalLineView!
+    @IBOutlet weak var centerVerticalWinLine: VerticalLineView!
+    @IBOutlet weak var rightVerticalWinLine: VerticalLineView!
+    @IBOutlet weak var topHorizontalWinLine: HorizontalLineView!
+    @IBOutlet weak var middleHorizontalWinLine: HorizontalLineView!
+    @IBOutlet weak var bottomHorizontalWinLine: HorizontalLineView!
+    // Erase View
     @IBOutlet weak var eraseView: EraseView!
     
+    // Delegate
     weak var delegate:GameBoardViewDelegate?
     
+    // Maps
     private var _pieceLocationMap: Dictionary<Location, PieceView>?
+    private var _winConditionMap: Dictionary<WinCondition, LineView>?
+    
+    // Constants
+    let lineAnimationSpeed = 0.15
 
+    
     // MARK: - Initialization
     
     override init(frame: CGRect) {
@@ -60,6 +77,7 @@ class GameBoardView: UIView {
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth,
                                  UIViewAutoresizing.flexibleHeight]
         addSubview(view)
+        self.eraseView.color = UIColor.Theme.lightTheme().backgroundColor
     }
     
     func loadViewFromNib() -> UIView! {
@@ -68,6 +86,8 @@ class GameBoardView: UIView {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
+    
+    // MARK: Maps
     
     var pieceLocationMap: Dictionary<Location, PieceView> {
         set (pieceLocationMap){}
@@ -90,15 +110,32 @@ class GameBoardView: UIView {
         }
     }
     
+    var winConditionMap: Dictionary<WinCondition, LineView> {
+        set(winConditionMap) {}
+        get {
+            if _winConditionMap == nil {
+                _winConditionMap = [
+                    WinCondition.leftDiagonal: leftDiagonalWinLine,
+                    WinCondition.rightDiagonal: rightDiagonalWinLine,
+                    WinCondition.verticalLeft: leftVerticalWinLine,
+                    WinCondition.verticalCenter: centerVerticalWinLine,
+                    WinCondition.verticalRight: rightVerticalWinLine,
+                    WinCondition.horizontalTop: topHorizontalWinLine,
+                    WinCondition.horizontalMiddle: middleHorizontalWinLine,
+                    WinCondition.horizontalBottom: bottomHorizontalWinLine
+                ]
+            }
+            return _winConditionMap!
+        }
+    }
 
     // MARK: - Draw On Board
 
     func drawBoard() {
-        let animationSpeed = 0.15
-        leftVerticalLine.drawLine(withDuration: animationSpeed)
-        rightVerticalLine.drawLine(withDuration: animationSpeed, delay: animationSpeed)
-        topHorizontalLine.drawLine(withDuration: animationSpeed, delay:(animationSpeed * 2))
-        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3)) { [weak self] () in
+        leftVerticalLine.drawLine(withDuration: lineAnimationSpeed)
+        rightVerticalLine.drawLine(withDuration: lineAnimationSpeed, delay: lineAnimationSpeed)
+        topHorizontalLine.drawLine(withDuration: lineAnimationSpeed, delay:(lineAnimationSpeed * 2))
+        bottomHorizontalLine.drawLine(withDuration: lineAnimationSpeed, delay: (lineAnimationSpeed * 3)) { [weak self] () in
             guard let strongSelf = self else { return }
             
             strongSelf.delegate?.didDrawBoard()
@@ -110,10 +147,21 @@ class GameBoardView: UIView {
         pieceView?.drawPiece(piece: piece, duration: 0.2)
     }
     
+    func draw(winConditions: Array<WinCondition>, color: UIColor) {
+        var delay = lineAnimationSpeed
+        for winCondition in winConditions{
+            let winConditionView = winConditionMap[winCondition]
+            winConditionView?.color = color
+            winConditionView?.drawLine(withDuration: lineAnimationSpeed, delay: delay)
+            delay += lineAnimationSpeed
+        }
+    }
+    
     func eraseGameBoard() {
+        eraseView.isHidden = false
         eraseView.drawLine(withDuration: 0.75) { [weak self] () in
             guard let strongSelf = self else { return }
-            
+
             // reset lines
             strongSelf.leftVerticalLine.resetDrawing()
             strongSelf.rightVerticalLine.resetDrawing()
@@ -131,7 +179,18 @@ class GameBoardView: UIView {
             strongSelf.bottomCenterPiece.resetDrawing()
             strongSelf.bottomRightPiece.resetDrawing()
             
+            // reset win lines
+            strongSelf.leftDiagonalWinLine.resetDrawing()
+            strongSelf.rightDiagonalWinLine.resetDrawing()
+            strongSelf.leftVerticalWinLine.resetDrawing()
+            strongSelf.centerVerticalWinLine.resetDrawing()
+            strongSelf.rightVerticalWinLine.resetDrawing()
+            strongSelf.topHorizontalWinLine.resetDrawing()
+            strongSelf.middleHorizontalWinLine.resetDrawing()
+            strongSelf.bottomHorizontalWinLine.resetDrawing()
+            
             // reset erase view
+            strongSelf.eraseView.isHidden = true
             strongSelf.eraseView.resetDrawing()
             
             strongSelf.delegate?.didEraseBoard()
