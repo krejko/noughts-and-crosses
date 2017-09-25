@@ -24,9 +24,7 @@ class GameViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        gameBoardView.drawBoard(animated: animated)
-        game = Game()
-        game.delegate = self
+        gameBoardView.drawBoard()
         self .updateNextPieceView(delay: 0.75)
     }
     
@@ -46,12 +44,25 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func restartButtonPressed(_ sender: Any) {
+        gameBoardView.eraseGameBoard()
+    }
 }
 
 extension GameViewController: GameBoardViewDelegate {
+    func didDrawBoard() {
+        game = Game()
+        game.delegate = self
+    }
+    
     func didSelectCell(location: Location) {
         //TODO: put in actual player index
         game.takeNextTurn(playerIndex: 0, selectedLocation: location)
+    }
+    
+    func didEraseBoard() {
+        gameBoardView.drawBoard()
     }
 }
 

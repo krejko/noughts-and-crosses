@@ -10,7 +10,9 @@ import UIKit
 
 
 protocol GameBoardViewDelegate: class {
+    func didDrawBoard()
     func didSelectCell(location: Location)
+    func didEraseBoard()
 }
 
 
@@ -33,6 +35,8 @@ class GameBoardView: UIView {
     @IBOutlet weak var bottomLeftPiece: PieceView!
     @IBOutlet weak var bottomCenterPiece: PieceView!
     @IBOutlet weak var bottomRightPiece: PieceView!
+    
+    @IBOutlet weak var eraseView: EraseView!
     
     weak var delegate:GameBoardViewDelegate?
     
@@ -89,17 +93,49 @@ class GameBoardView: UIView {
 
     // MARK: - Draw On Board
 
-    func drawBoard(animated: Bool) {
+    func drawBoard() {
         let animationSpeed = 0.15
         leftVerticalLine.drawLine(withDuration: animationSpeed)
         rightVerticalLine.drawLine(withDuration: animationSpeed, delay: animationSpeed)
         topHorizontalLine.drawLine(withDuration: animationSpeed, delay:(animationSpeed * 2))
-        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3))
+        bottomHorizontalLine.drawLine(withDuration: animationSpeed, delay: (animationSpeed * 3)) { [weak self] () in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.delegate?.didDrawBoard()
+        }
     }
     
     func draw(piece: GamePiece, location: Location) {
         let pieceView = pieceLocationMap[location]
         pieceView?.drawPiece(piece: piece, duration: 0.2)
+    }
+    
+    func eraseGameBoard() {
+        eraseView.drawLine(withDuration: 0.75) { [weak self] () in
+            guard let strongSelf = self else { return }
+            
+            // reset lines
+            strongSelf.leftVerticalLine.resetDrawing()
+            strongSelf.rightVerticalLine.resetDrawing()
+            strongSelf.topHorizontalLine.resetDrawing()
+            strongSelf.bottomHorizontalLine.resetDrawing()
+            
+            // reset game pieces
+            strongSelf.topLeftPiece.resetDrawing()
+            strongSelf.topCenterPiece.resetDrawing()
+            strongSelf.topRightPiece.resetDrawing()
+            strongSelf.middleLeftPiece.resetDrawing()
+            strongSelf.middleCenterPiece.resetDrawing()
+            strongSelf.middleRightPiece.resetDrawing()
+            strongSelf.bottomLeftPiece.resetDrawing()
+            strongSelf.bottomCenterPiece.resetDrawing()
+            strongSelf.bottomRightPiece.resetDrawing()
+            
+            // reset erase view
+            strongSelf.eraseView.resetDrawing()
+            
+            strongSelf.delegate?.didEraseBoard()
+        }
     }
     
     // MARK: - Action Handling

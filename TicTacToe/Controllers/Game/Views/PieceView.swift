@@ -17,8 +17,8 @@ class PieceView : LineView {
     private var _rightDrawingTimer: Timer?
     private var _halfDuration = 0.0
     private var _xStrokeWidth = 0.0
-
-
+    
+    
     var rightLineLengthPercent: Double {
         set (newLineLengthPercent){
             if newLineLengthPercent > 1.0 {
@@ -47,9 +47,9 @@ class PieceView : LineView {
             }
         }
     }
-
+    
     //MARK: - Drawing
- 
+    
     override func resetDrawing () {
         super.resetDrawing()
         rightLineLengthPercent = 0.0
@@ -71,19 +71,26 @@ class PieceView : LineView {
     }
     
     func drawRightLine(withDuration: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self._rightDrawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.animationFrequency),
-                                                           target: self,
-                                                           selector: #selector(PieceView.updateRightLine),
-                                                           userInfo: nil,
-                                                           repeats: true)
+        DispatchQueue.main.asyncAfter(deadline: .now()) {[weak self] () in
+            guard let strongSelf = self else { return }
+            strongSelf._rightDrawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(strongSelf.animationFrequency),
+                                                                 target: strongSelf,
+                                                                 selector: #selector(PieceView.updateRightLine),
+                                                                 userInfo: nil,
+                                                                 repeats: true)
         }
     }
     
     func updateRightLine()  {
         rightLineLengthPercent += drawingIncrementPercent
-
+        
         if rightLineLengthPercent >= 1.0 {
+            invalidateRightTimer()
+        }
+    }
+    
+    func invalidateRightTimer() {
+        if _rightDrawingTimer != nil {
             _rightDrawingTimer!.invalidate()
             _rightDrawingTimer = nil
         }

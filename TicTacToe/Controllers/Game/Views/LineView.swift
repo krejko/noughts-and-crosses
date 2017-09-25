@@ -11,12 +11,16 @@ import UIKit
 
 class LineView: UIView {
     
+    typealias AnimationCompletion = ()->Void
+    
     //MARK: - Properties
     
     let animationFrequency: Double = 0.01
     private var _lineLengthPercent : Double = 0
     private var _drawingTimer: Timer?
     var drawingIncrementPercent: Double = 0.0
+    var animationCompletion: AnimationCompletion?
+    
     
     var lineLengthPercent: Double {
         set (newLineLengthPercent){
@@ -42,15 +46,19 @@ class LineView: UIView {
     }
     
     func drawLine(withDuration: Double = 1,
-                  delay: Double = 0.0) {
+                  delay: Double = 0.0,
+                  animationCompletion: @escaping AnimationCompletion = {}) {
+        self.animationCompletion = animationCompletion
         resetDrawing()
         drawingIncrementPercent = calculateDrawingIncrementPercent(withDuration: withDuration, frequency: animationFrequency)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            self._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.animationFrequency),
-                                                      target: self,
-                                                      selector: #selector(LineView.updateLine),
-                                                      userInfo: nil,
-                                                      repeats: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] () in
+            guard let strongSelf = self else { return }
+            strongSelf.invalidateTimer()
+            strongSelf._drawingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(strongSelf.animationFrequency),
+                                                            target: strongSelf,
+                                                            selector: #selector(LineView.updateLine),
+                                                            userInfo: nil,
+                                                            repeats: true)
         }
     }
     
@@ -58,13 +66,26 @@ class LineView: UIView {
         lineLengthPercent += drawingIncrementPercent
         
         if lineLengthPercent >= 1.0 {
+            invalidateTimer()
+            invokeAnimationCompletion()
+        }
+    }
+    
+    func invalidateTimer() {
+        if _drawingTimer != nil {
             _drawingTimer!.invalidate()
             _drawingTimer = nil
         }
     }
     
+    func invokeAnimationCompletion() {
+        if animationCompletion != nil {
+            animationCompletion!()
+        }
+    }
+    
     //MARK: - Calculations
-  
+    
     func calculateDrawingIncrementPercent(withDuration: Double, frequency: Double = 0.05) -> Double {
         if (withDuration <= 0) {
             return 1.0
@@ -72,7 +93,7 @@ class LineView: UIView {
             return (animationFrequency / withDuration)
         }
     }
-
+    
 }
 
 //MARK: - Subclasses
@@ -86,6 +107,14 @@ class VerticalLineView: LineView {
 class HorizontalLineView: LineView {
     override func draw(_ rect: CGRect) {
         Drawer.drawHorizontalLine(horizontalLinePercent: CGFloat(lineLengthPercent), horizontalLineFrame: rect)
+    }
+}
+
+class EraseView: LineView {
+    override func draw(_ rect: CGRect) {
+        Drawer.drawErase(backgroundColor: UIColor.init(hex: 0xF2F2F4),
+                         erasePercent: CGFloat(lineLengthPercent),
+                         eraseFrame: rect)
     }
 }
 
