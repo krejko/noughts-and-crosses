@@ -11,10 +11,10 @@ import UIKit
 extension UIColor {
 
     struct Palatte{
-        static let White = UIColor.init(hex: 0xF2F2F4)
-        static let DarkGreen = UIColor.init(hex: 0x657E74)
-        static let LightGreen = UIColor.init(hex: 0x93ADA3)
-        static let DarkGray = UIColor.init(hex: 0x666666)
+        static let White = UIColor.init(rgbHex: 0xF2F2F4)
+        static let DarkGreen = UIColor.init(argbHex: 0xCC657E74)
+        static let LightGreen = UIColor.init(argbHex: 0xCC93ADA3)
+        static let DarkGray = UIColor.init(rgbHex: 0x666666)
     }
     
     class Theme: NSObject {

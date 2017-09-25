@@ -20,7 +20,7 @@ class LineView: UIView {
     private var _drawingTimer: Timer?
     var drawingIncrementPercent: Double = 0.0
     var animationCompletion: AnimationCompletion?
-    var color: UIColor? = UIColor.Palatte.DarkGray
+    var color: UIColor? = UIColor.Palatte.LightGreen
     
     
     var lineLengthPercent: Double {
@@ -102,13 +102,17 @@ class LineView: UIView {
 
 class VerticalLineView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawVerticalLine(verticalLinePercent: CGFloat(lineLengthPercent), verticalLineFrame: rect)
+        Drawer.drawVerticalLine(lightGreen: color!,
+                                verticalLinePercent: CGFloat(lineLengthPercent),
+                                verticalLineFrame: rect)
     }
 }
 
 class HorizontalLineView: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawHorizontalLine(horizontalLinePercent: CGFloat(lineLengthPercent), horizontalLineFrame: rect)
+        Drawer.drawHorizontalLine(lightGreen: color!,
+                                  horizontalLinePercent: CGFloat(lineLengthPercent),
+                                  horizontalLineFrame: rect)
     }
 }
 
@@ -122,7 +126,9 @@ class EraseView: LineView {
 
 class leftDiagonalLine: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawX(rect: rect,
+        Drawer.drawX(lightGreen: color!,
+                     darkGreen: color!,
+                     rect: rect,
                      leftLinePercent: CGFloat(lineLengthPercent),
                      showLeftLine: (lineLengthPercent > 0.1),
                      rightLinePercent: 0.0,
@@ -133,7 +139,9 @@ class leftDiagonalLine: LineView {
 
 class rightDiagonalLine: LineView {
     override func draw(_ rect: CGRect) {
-        Drawer.drawX(rect: rect,
+        Drawer.drawX(lightGreen: color!,
+                     darkGreen: color!,
+                     rect: rect,
                      leftLinePercent: 0.0,
                      showLeftLine: false,
                      rightLinePercent: CGFloat(lineLengthPercent),
